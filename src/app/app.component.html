@@ -22,38 +22,119 @@
 
   <!-- About -->
   <section id="about" class="p-10 text-center">
-    <img src="ruta-a-tu-foto.jpg" alt="Foto profesional" class="mx-auto w-32 h-32 rounded-full mb-4">
-    <h1 class="text-3xl font-bold mb-2">Tu Nombre</h1>
-    <p class="text-lg mb-4">Desarrollador Frontend especializado en Angular y React.</p>
-    <div class="flex justify-center space-x-4 mb-4">
-      <a href="#" class="hover:text-teal-400">LinkedIn</a>
-      <a href="#" class="hover:text-teal-400">WhatsApp</a>
-      <a href="mailto:correo@ejemplo.com" class="hover:text-teal-400">Email</a>
-      <a href="#" class="hover:text-teal-400">GitHub</a>
+    <section class="bg-black text-white py-12 px-4">
+  <div class="max-w-4xl mx-auto text-center">
+    <img src="assets/ProfilePhoto.jpg" alt="Foto profesional de Luis Fernando" class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-white">
+    
+    <h1 class="text-3xl font-bold mb-4">Luis Fernando Aguilar</h1>
+    
+    <p class="text-lg mb-4">
+      Ingeniero de Sistemas con más de 5 años de experiencia en desarrollo de software en general.
+      Experto en varios lenguajes de programación, busco aportar con mis habilidades y colaborar en la optimización de los procesos que me sean recomendados.
+      Estoy entusiasmado por sumarme y contribuir al éxito de su equipo.
+    </p>
+
+    <p class="text-sm text-gray-400 mb-6">
+      Frontend & Backend Developer – Angular, Java, Redux, TypeScript, JavaScript
+    </p>
+
+    <div class="flex justify-center gap-6 mb-6">
+      <a href="https://www.linkedin.com/in/luis-fernando-1bab44184/" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin text-2xl hover:text-blue-400"></i>
+      </a>
+      <a href="http://api.whatsapp.com/send?phone=593997339982" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp text-2xl hover:text-green-400"></i>
+      </a>
+      <a href="mailto:luisfernandoaguilar56@gmail.com" target="_blank" aria-label="Email">
+        <i class="fas fa-envelope text-2xl hover:text-yellow-400"></i>
+      </a>
+      <a href="https://github.com/lfaguilarn" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github text-2xl hover:text-gray-400"></i>
+      </a>
     </div>
-    <a href="tu-cv.pdf" download class="bg-teal-500 px-4 py-2 rounded hover:bg-teal-600">Descargar CV</a>
-    <p class="mt-4 text-sm text-gray-400">Stack: Angular, React, TypeScript</p>
+
+    <a href="assets/CV.pdf" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
+      Descargar CV
+    </a>
+  </div>
+</section>
+
   </section>
 
   <!-- Projects -->
   <section id="projects" class="p-10">
-    <h2 class="text-2xl font-bold mb-4">Proyectos</h2>
-    <p class="mb-4">Aquí algunos proyectos destacados en los que he trabajado.</p>
+  
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold mb-6 text-center">Proyectos Destacados</h2>
+    <p class="text-lg text-gray-300 mb-12 text-center">
+      Algunos de los proyectos más representativos que he desarrollado con enfoque en escalabilidad, experiencia de usuario y eficiencia operativa.
+    </p>
 
-    <!-- Proyecto ejemplo -->
-    <div class="mb-6 border border-gray-700 p-4 rounded">
-      <h3 class="text-xl font-semibold">Nombre del Proyecto</h3>
-      <p class="mb-2">Descripción corta del proyecto.</p>
-      <ul class="list-disc list-inside text-sm mb-2">
-        <li>Funcionalidad principal 1</li>
-        <li>Funcionalidad principal 2</li>
+    <!-- Proyecto 1: SiHuac -->
+    <div class="mb-12 border border-gray-700 p-6 rounded-lg">
+      <h3 class="text-2xl font-semibold mb-2">SiHuac - Aplicación de Escritorio para la Gestión Integral de Hostería</h3>
+      <p class="mb-4 text-gray-400">Aplicación de escritorio diseñada para administrar operativamente una hostería con enfoque en eficiencia y experiencia del usuario.</p>
+      <ul class="list-disc pl-5 text-gray-300 mb-4">
+        <li>Registro y control de ingreso de huéspedes.</li>
+        <li>Administración del acceso a zonas de relajación.</li>
+        <li>Gestión completa de reservas, check-in y check-out.</li>
+        <li>Generación de reportes detallados de visitas.</li>
+        <li>Configuración de tarifas y políticas de cobro.</li>
+        <li>Usuarios con roles y permisos diferenciados.</li>
+        <li>Panel con indicadores de ocupación en tiempo real.</li>
       </ul>
-      <p class="text-sm mb-2">Tecnologías: <span class="text-teal-400">Angular, Firebase</span></p>
-      <div class="flex space-x-4 text-sm">
-        <a href="#" class="hover:text-teal-400">Demo</a>
-        <a href="#" class="hover:text-teal-400">Repositorio</a>
+      <div class="flex flex-wrap gap-3 text-sm">
+        <span class="bg-gray-800 px-3 py-1 rounded">Java</span>
+        <span class="bg-gray-800 px-3 py-1 rounded">Maven</span>
+        <span class="bg-gray-800 px-3 py-1 rounded">Jenkins</span>
+        <span class="bg-gray-800 px-3 py-1 rounded">PostgreSQL</span>
+        <span class="bg-gray-800 px-3 py-1 rounded">GitHub</span>
       </div>
     </div>
+
+    <!-- Proyecto 2: Obacar -->
+    <div class="mb-12 border border-gray-700 p-6 rounded-lg">
+      <h3 class="text-2xl font-semibold mb-2">Obacar - Sistema de Gestión para Almacén de Repuestos Electromecánicos</h3>
+      <p class="mb-4 text-gray-400">Aplicación para inventario y facturación en almacenes de repuestos, diseñada con arquitectura modular y fácil mantenimiento.</p>
+      <ul class="list-disc pl-5 text-gray-300 mb-4">
+        <li>Registro de entradas y salidas con trazabilidad.</li>
+        <li>Inventario en tiempo real.</li>
+        <li>Emisión de facturas y notas de entrega.</li>
+        <li>Búsqueda y clasificación avanzada de productos.</li>
+        <li>Configuración de precios y stock mínimo.</li>
+        <li>Roles y niveles de acceso por usuario.</li>
+        <li>Reportes de movimientos, existencias y ventas.</li>
+      </ul>
+      <div class="flex flex-wrap gap-3 text-sm">
+        <span class="bg-gray-800 px-3 py-1 rounded">Java</span>
+        <span class="bg-gray-800 px-3 py-1 rounded">Maven</span>
+        <span class="bg-gray-800 px-3 py-1 rounded">PostgreSQL</span>
+        <span class="bg-gray-800 px-3 py-1 rounded">GitHub</span>
+      </div>
+    </div>
+
+    <!-- Proyecto 3: ElectroSánchez -->
+    <div class="border border-gray-700 p-6 rounded-lg">
+      <h3 class="text-2xl font-semibold mb-2">ElectroSánchez - Sistema de Gestión de Repuestos Electromecánicos</h3>
+      <p class="mb-4 text-gray-400">Solución personalizada para control de inventario, movimientos de productos y facturación en ElectroSánchez.</p>
+      <ul class="list-disc pl-5 text-gray-300 mb-4">
+        <li>Entradas y salidas de repuestos con control detallado.</li>
+        <li>Inventario en tiempo real.</li>
+        <li>Facturación y comprobantes de entrega.</li>
+        <li>Gestión avanzada de productos.</li>
+        <li>Configuración de márgenes, precios y stock mínimo.</li>
+        <li>Acceso seguro con múltiples roles de usuario.</li>
+        <li>Reportes de inventario, movimientos y ventas.</li>
+      </ul>
+      <div class="flex flex-wrap gap-3 text-sm">
+        <span class="bg-gray-800 px-3 py-1 rounded">Java</span>
+        <span class="bg-gray-800 px-3 py-1 rounded">Maven</span>
+        <span class="bg-gray-800 px-3 py-1 rounded">PostgreSQL</span>
+        <span class="bg-gray-800 px-3 py-1 rounded">GitHub</span>
+      </div>
+    </div>
+  </div>
+
   </section>
 
   <!-- Experience -->
