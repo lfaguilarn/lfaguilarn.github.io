@@ -5,30 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mi Portafolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body class="bg-black text-white font-sans">
 
   <!-- Navbar -->
-  <nav class="bg-gray-900 p-4 shadow-lg sticky top-0 z-50">
-    <ul class="flex justify-center space-x-6 text-lg">
-      <li><a href="#about" class="hover:text-teal-400">About</a></li>
-      <li><a href="#projects" class="hover:text-teal-400">Projects</a></li>
-      <li><a href="#experience" class="hover:text-teal-400">Experience</a></li>
-      <li><a href="#education" class="hover:text-teal-400">Education & Certifications</a></li>
-      <li><a href="#skills" class="hover:text-teal-400">Skills</a></li>
-      <li><a href="#contact" class="hover:text-teal-400">Get in Touch</a></li>
-    </ul>
-  </nav>
+<nav class="bg-gray-900 p-4 shadow-lg sticky top-0 z-50">
+  <ul class="flex justify-center space-x-6 text-lg text-white">
+    <li><a href="#about" class="hover:text-teal-400">About</a></li>
+    <li><a href="#projects" class="hover:text-teal-400">Projects</a></li>
+    <li><a href="#experience" class="hover:text-teal-400">Experience</a></li>
+    <li><a href="#education" class="hover:text-teal-400">Education & Certifications</a></li>
+    <li><a href="#skills" class="hover:text-teal-400">Skills</a></li>
+    <li><a href="#contact" class="hover:text-teal-400">Get in Touch</a></li>
+  </ul>
+</nav>
 
-  <!-- About -->
-  <section id="about" class="p-10 text-center">
-    <section class="bg-black text-white py-12 px-4">
-  <div class="max-w-4xl mx-auto text-center">
-    <img src="assets/ProfilePhoto.jpg" alt="Foto profesional de Luis Fernando" class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-white">
-    
-    <h1 class="text-3xl font-bold mb-4">Luis Fernando Aguilar</h1>
-    
-    <p class="text-lg mb-4">
+<!-- About Section -->
+<section id="about"
+  class="min-h-[calc(100vh-64px)] bg-black text-white flex items-center justify-center px-4 py-12">
+  <div class="max-w-4xl text-center" data-aos="fade-up" data-aos-duration="1000">
+    <img src="assets/ProfilePhoto.jpg" alt="Foto profesional de Luis Fernando"
+      class="w-64 h-64 rounded-full mx-auto mb-6 border-4 border-white">
+
+    <h1 class="text-3xl sm:text-4xl font-bold mb-4">Luis Fernando Aguilar</h1>
+
+    <p class="text-lg sm:text-xl mb-4">
       Ingeniero de Sistemas con más de 5 años de experiencia en desarrollo de software en general.
       Experto en varios lenguajes de programación, busco aportar con mis habilidades y colaborar en la optimización de los procesos que me sean recomendados.
       Estoy entusiasmado por sumarme y contribuir al éxito de su equipo.
@@ -53,22 +55,29 @@
       </a>
     </div>
 
-    <a href="assets/CV.pdf" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
+    <a href="assets/CV.pdf" target="_blank"
+      class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">
       Descargar CV
     </a>
   </div>
 </section>
 
-  </section>
 
   <!-- Projects -->
-  <section class="bg-black text-white py-16 px-6" id="projects">
+<section class="bg-black text-white py-6 px-6" id="projects">
   <div class="max-w-7xl mx-auto">
     <h2 class="text-3xl font-bold mb-12 text-center">Proyectos Destacados</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
+    <!-- Layout responsivo: columna en móvil, scroll horizontal solo en pantallas grandes -->
+    <div
+      id="scroll-container"
+      class="flex flex-col gap-4 md:flex-row md:overflow-x-auto md:scrollbar-hide md:pb-2"
+      data-aos="fade-up"
+      onmousemove="handleAutoScroll(event)"
+      onmouseleave="stopAutoScroll()"
+    >
       <!-- Proyecto 1 -->
-      <div class="bg-gray-900 border border-gray-700 hover:border-blue-500 transition-colors duration-300 p-6 rounded-lg">
+      <div class="min-w-full md:min-w-[350px] bg-gray-900 border border-gray-700 hover:border-blue-500 transition-colors duration-300 p-6 rounded-lg">
         <h3 class="text-xl font-semibold mb-2">SiHuac</h3>
         <p class="text-sm text-gray-400 mb-4">Aplicación de escritorio para gestión de hostería, centrada en eficiencia operativa y experiencia del usuario.</p>
         <ul class="text-sm text-gray-300 list-disc pl-4 mb-4">
@@ -86,7 +95,7 @@
       </div>
 
       <!-- Proyecto 2 -->
-      <div class="bg-gray-800 border border-gray-700 hover:border-green-500 transition-colors duration-300 p-6 rounded-lg">
+      <div class="min-w-full md:min-w-[350px] bg-gray-800 border border-gray-700 hover:border-green-500 transition-colors duration-300 p-6 rounded-lg">
         <h3 class="text-xl font-semibold mb-2">Obacar</h3>
         <p class="text-sm text-gray-300 mb-4">Sistema para inventario y facturación en almacenes de repuestos, escalable y modular.</p>
         <ul class="text-sm text-gray-200 list-disc pl-4 mb-4">
@@ -103,7 +112,7 @@
       </div>
 
       <!-- Proyecto 3 -->
-      <div class="bg-gray-900 border border-gray-700 hover:border-yellow-500 transition-colors duration-300 p-6 rounded-lg">
+      <div class="min-w-full md:min-w-[350px] bg-gray-900 border border-gray-700 hover:border-yellow-500 transition-colors duration-300 p-6 rounded-lg">
         <h3 class="text-xl font-semibold mb-2">ElectroSánchez</h3>
         <p class="text-sm text-gray-400 mb-4">Sistema personalizado para ElectroSánchez con control de inventario, movimientos y facturación.</p>
         <ul class="text-sm text-gray-300 list-disc pl-4 mb-4">
@@ -118,17 +127,24 @@
           <span class="bg-gray-800 px-2 py-1 rounded">GitHub</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-  <!-- Experience -->
-<section id="experience" class="py-20 px-4 bg-black text-white">
-  <h2 class="text-4xl font-bold text-center mb-12">Experiencia</h2>
 
+
+  <!-- Experience -->
+<section id="experience" class="py-6 px-4 bg-black text-white">
+  <h2 class="text-4xl font-bold text-center mb-12">Experiencia</h2>
   <div class="overflow-x-auto relative custom-scrollbar">
     <div class="flex gap-6 px-4 snap-x snap-mandatory scroll-pl-10">
+      <!-- Contenedor con scroll y AOS -->
+    <div id="scroll-container"
+         class="relative flex gap-4 overflow-x-auto scrollbar-hide pb-2 transition-all duration-300"
+         data-aos="fade-up"
+         onmousemove="handleAutoScroll(event)"
+         onmouseleave="stopAutoScroll()"
+    >
       <!-- Tarjeta 1 -->
       <div class="flex-shrink-0 w-[300px] snap-center transform transition-all duration-300 hover:scale-105 bg-gray-800 border border-gray-600 hover:border-indigo-400 rounded-xl p-6 shadow-lg">
         <img src="assets/juanxxiii.jpg" alt="Juan XXIII" class="w-16 h-16 object-cover rounded-full mb-4">
@@ -189,6 +205,7 @@
         </ul>
       </div>
     </div>
+    </div>
   </div>
 
   <!-- Estilos para ocultar scrollbars -->
@@ -205,14 +222,19 @@
 </section>
 
 
-
-
 <!-- Education & Certifications -->
 <section id="education" class="p-10">
   <h2 class="text-3xl font-bold mb-6 text-center text-white">Educación</h2>
-
+  <!-- Contenedor con scroll y AOS -->
+    <div id="scroll-container"
+         class="relative flex gap-4 overflow-x-auto scrollbar-hide pb-2 transition-all duration-300"
+         data-aos="fade-up"
+         onmousemove="handleAutoScroll(event)"
+         onmouseleave="stopAutoScroll()"
+    >
   <!-- Education Section -->
   <div class="grid md:grid-cols-2 gap-6">
+    
     <!-- Universidad Técnica de Machala -->
     <div class="bg-black text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
       <div class="flex items-center mb-4">
@@ -233,11 +255,18 @@
         </div>
       </div>
     </div>
+    </div>
   </div>
 
   <!-- Certifications Section -->
   <h2 class="text-3xl font-bold mt-10 mb-6 text-center text-white">Certificaciones</h2>
-  
+  <!-- Contenedor con scroll y AOS -->
+    <div id="scroll-container"
+         class="relative flex gap-4 overflow-x-auto scrollbar-hide pb-2 transition-all duration-300"
+         data-aos="fade-up"
+         onmousemove="handleAutoScroll(event)"
+         onmouseleave="stopAutoScroll()"
+    >
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
     <!-- Udemy Certification -->
     <div class="flex items-center justify-between bg-black text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
@@ -299,79 +328,175 @@
       <a href="assets/IOT.pdf" target="_blank" class="bg-teal-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-teal-600 transition-colors duration-300">Ver Certificado</a>
     </div>
   </div>
+    </div>
 </section>
-
 
 
 <!-- Skills Section -->
 <section id="skills" class="p-10 bg-gray-900">
   <h2 class="text-3xl font-bold text-center text-white mb-8">Habilidades</h2>
 
-  <!-- Programming Languages -->
-  <div class="mb-8">
+<!-- Sección combinada de Lenguajes e IDE -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+  <!-- Lenguajes de Programación (2/3) -->
+  <div class="lg:col-span-2">
     <h3 class="text-2xl font-semibold text-white mb-4">Lenguajes de Programación</h3>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-      <div class="flex items-center justify-center bg-black text-white p-0 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <img src="assets/csharp-logo.png" alt="C#" class="w-25 h-25 mr-4" />
-        <p>C#</p>
+
+    <!-- Contenedor con scroll y AOS -->
+    <div id="scroll-container"
+         class="relative flex gap-4 overflow-x-auto scrollbar-hide pb-2 transition-all duration-300"
+         data-aos="fade-up"
+         onmousemove="handleAutoScroll(event)"
+         onmouseleave="stopAutoScroll()"
+    >
+      <!-- Tarjetas -->
+      <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+        <img src="assets/csharp-logo.png" alt="C#" class="w-12 h-12 mr-2" />
+        <p class="text-sm sm:text-base hidden md:block">C#</p>
       </div>
-      <div class="flex items-center justify-center bg-black text-white p-0 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <img src="assets/java-logo.png" alt="Java" class="w-25 h-25 mr-4" />
-        <p>Java SpringBoot</p>
+
+      <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+        <img src="assets/java-logo.png" alt="Java" class="w-8 h-8 mr-2" />
+        <p class="text-sm sm:text-base hidden md:block">Java SpringBoot</p>
       </div>
-      <div class="flex items-center justify-center bg-black text-white p-0 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <img src="assets/visual-basic-logo.png" alt="Visual Basic" class="w-25 h-25 mr-4" />
-        <p>Visual Basic</p>
+
+      <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+        <img src="assets/visual-basic-logo.png" alt="VB" class="w-8 h-8 mr-2" />
+        <p class="text-sm sm:text-base hidden md:block">Visual Basic</p>
       </div>
-      <div class="flex items-center justify-center bg-black text-white p-0 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <img src="assets/angular-logo.png" alt="Angular" class="w-25 h-25 mr-4" />
-        <p>Angular</p>
+
+      <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+        <img src="assets/angular-logo.png" alt="Angular" class="w-8 h-8 mr-2" />
+        <p class="text-sm sm:text-base hidden md:block">Angular</p>
       </div>
-      <div class="flex items-center justify-center bg-black text-white p-0 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <img src="assets/javascript-logo.png" alt="JavaScript" class="w-25 h-25 mr-4" />
-        <p>JavaScript</p>
+
+      <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+        <img src="assets/javascript-logo.png" alt="JavaScript" class="w-8 h-8 mr-2" />
+        <p class="text-sm sm:text-base hidden md:block">JavaScript</p>
       </div>
     </div>
   </div>
 
-  <!-- Databases -->
-  <div class="mb-8">
-    <h3 class="text-2xl font-semibold text-white mb-4">Base de Datos</h3>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="flex items-center justify-center bg-black text-white p-0 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <img src="assets/oracle-logo.png" alt="Oracle" class="w-45 h-25 mr-4" />
-        <p>Oracle</p>
+  <!-- IDE (1/3) -->
+  <div class="lg:col-span-1">
+    <h3 class="text-2xl font-semibold text-white mb-4">IDE</h3>
+
+    <!-- Contenedor con scroll y AOS -->
+    <div id="scroll-container-db"
+         class="relative flex gap-4 overflow-x-auto scrollbar-hide pb-2 transition-all duration-300"
+         data-aos="fade-up"
+         onmousemove="handleAutoScrollDB(event)"
+         onmouseleave="stopAutoScrollDB()"
+    >
+      <!-- Tarjetas -->
+      <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+        <img src="assets/visual-studio-logo.png" alt="Visual Studio Code" class="w-12 h-12 mr-4" />
+        <p>Visual Studio Code</p>
       </div>
-      <div class="flex items-center justify-center bg-black text-white p-0 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <img src="assets/sql-server-logo.png" alt="SQL Server" class="w-25 h-25 mr-4" />
-        <p>SQL Server</p>
-      </div>
-      <div class="flex items-center justify-center bg-black text-white p-0 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <img src="assets/postgresql-logo.png" alt="PostgreSQL" class="w-25 h-25 mr-4" />
-        <p>PostgreSQL</p>
-      </div>
-      <div class="flex items-center justify-center bg-black text-white p-0 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <img src="assets/mysql-logo.png" alt="MySQL" class="w-25 h-25 mr-4" />
-        <p>MySQL</p>
+
+      <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+        <img src="assets/sublime-text-logo.png" alt="SublimeText" class="w-12 h-12 mr-4" />
+        <p>SublimeText</p>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Version Control -->
-  <div class="mb-8">
+
+
+
+  <!-- Sección combinada de Versionamiento, Base de datos y Metodologias -->
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-8">
+
+<!-- Base de Datos -->
+  <div class="lg:col-span-3">
+  <h3 class="text-2xl font-semibold text-white mb-4">Base de Datos</h3>
+  
+  <!-- Contenedor con scroll y AOS -->
+  <div id="scroll-container-db"
+       class="relative flex gap-4 overflow-x-auto scrollbar-hide pb-2 transition-all duration-300"
+       data-aos="fade-up"
+       onmousemove="handleAutoScrollDB(event)"
+       onmouseleave="stopAutoScrollDB()"
+  >
+    <!-- Tarjetas -->
+    <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+      <img src="assets/oracle-logo.png" alt="Oracle" class="w-20 h-12 mr-0" />
+      <p class="text-sm sm:text-base hidden md:block">Oracle</p>
+    </div>
+
+    <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+      <img src="assets/sql-server-logo.png" alt="SQL Server" class="w-12 h-12 mr-4" />
+      <p class="text-sm sm:text-base hidden md:block">SQL Server</p>
+    </div>
+
+    <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+      <img src="assets/postgresql-logo.png" alt="PostgreSQL" class="w-12 h-12 mr-4" />
+      <p class="text-sm sm:text-base hidden md:block">PostgreSQL</p>
+    </div>
+
+    <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+      <img src="assets/mysql-logo.png" alt="MySQL" class="w-12 h-12 mr-4" />
+      <p class="text-sm sm:text-base hidden md:block">MySQL</p>
+    </div>
+  </div>
+</div>
+<!-- Version Control -->
+  <div>
+  <h3 class="text-2xl font-semibold text-white mb-4">Versionamiento</h3>
+
+  <!-- Contenedor con scroll y AOS -->
+  <div id="scroll-container"
+       class="relative flex gap-4 overflow-x-auto scrollbar-hide pb-2 transition-all duration-300"
+       data-aos="fade-up"
+       onmousemove="handleAutoScroll(event)"
+       onmouseleave="stopAutoScroll()"
+  >
+    <!-- Tarjetas -->
+    <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+      <img src="assets/gitlab-logo.png" alt="GitLab" class="w-35 h-12 mr-4" />
+      <p></p>
+    </div>
+
+  </div>
+</div>
+<!-- Metodologías Ágiles -->
+<div>
+  <h3 class="text-2xl font-semibold text-white mb-4">Metodologías Ágiles</h3>
+  
+  <!-- Contenedor con scroll y AOS -->
+  <div id="scroll-container-db"
+       class="relative flex gap-4 overflow-x-auto scrollbar-hide pb-2 transition-all duration-300"
+       data-aos="fade-up"
+       onmousemove="handleAutoScrollDB(event)"
+       onmouseleave="stopAutoScrollDB()"
+  >
+    <!-- Tarjetas -->
+    <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+      <img src="assets/scrum-logo.png" alt="Scrum" class="w-12 h-12 mr-4" />
+        <p>Scrum</p>
+    </div>
+
+    <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+      <img src="assets/xp-logo.png" alt="XP" class="w-12 h-12 mr-4" />
+        <p>XP</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Version Control -->
+  <!-- <div class="mb-8">
     <h3 class="text-2xl font-semibold text-white mb-4">Versionamiento de Código</h3>
     <div class="flex items-center justify-center bg-black text-white p-0 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
       <img src="assets/gitlab-logo.png" alt="GitLab" class="w-70 h-25 mr-4" />
       <p></p>
     </div>
-  </div>
+  </div> -->
 
   <!-- IDEs -->
-  <div class="mb-8">
-    <div class="grid grid-cols-2 gap-4 mb-4">
-      <h3 class="text-2xl font-semibold text-white">IDE</h3>
-      <h3 class="text-2xl font-semibold text-white">Metodologías Ágiles</h3>
-    </div>
+  <!-- <div class="mb-8">
+    <h3 class="text-2xl font-semibold text-white mb-4">IDE</h3>
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
       <div class="flex items-center justify-center bg-black text-white p-0 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
         <img src="assets/visual-studio-logo.png" alt="Visual Studio Code" class="w-25 h-25 mr-4" />
@@ -381,20 +506,13 @@
         <img src="assets/sublime-text-logo.png" alt="SublimeText" class="w-25 h-25 mr-4" />
         <p>SublimeText</p>
       </div>
-      <div class="flex items-center justify-center bg-black text-white p-0 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <img src="assets/scrum-logo.png" alt="Scrum" class="w-25 h-25 mr-4" />
-        <p>Scrum</p>
-      </div>
-      <div class="flex items-center justify-center bg-black text-white p-0 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <img src="assets/xp-logo.png" alt="XP" class="w-25 h-25 mr-4" />
-        <p>XP</p>
-      </div>
     </div>
-  
+    </div>
+   -->
 
   <!-- Agile Methodologies -->
-  <!-- <div class="mb-8"> -->
-    <!-- <h3 class="text-2xl font-semibold text-white mb-4">Metodologías Ágiles</h3>
+  <!-- <div class="mb-8">
+     <h3 class="text-2xl font-semibold text-white mb-4">Metodologías Ágiles</h3>
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
       <div class="flex items-center justify-center bg-black text-white p-0 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
         <img src="assets/scrum-logo.png" alt="Scrum" class="w-25 h-25 mr-4" />
@@ -404,40 +522,54 @@
         <img src="assets/xp-logo.png" alt="XP" class="w-25 h-25 mr-4" />
         <p>XP</p>
       </div>
-    </div> -->
-  <!-- </div> -->
+    </div> 
+  </div> -->
 
-  </div>
-  <!-- Office Suite -->
-  <div class="mb-8">
-    <h3 class="text-2xl font-semibold text-white mb-4">Paquete Office</h3>
-    <div class="flex items-center justify-center bg-black text-white p-0 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-      <img src="assets/office-logo.png" alt="Office" class="w-25 h-25 mr-4" />
-      <p>Microsoft Office</p>
+
+
+<!-- Soft Skills -->
+<div class="mb-8" data-aos="fade-up" data-aos-duration="800">
+  <h3 class="text-2xl font-semibold text-white mb-4">Habilidades Blandas</h3>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+    <div
+      *ngFor="let skill of skillKeys"
+      class="flex items-center justify-center bg-black text-white p-6 rounded-lg shadow-lg 
+             transform transition-all duration-300 hover:scale-105 hover:bg-indigo-600 cursor-pointer"
+      (click)="openModal(skill)"
+    >
+      <p class="text-center">{{ skill }}</p>
     </div>
   </div>
-
-  <!-- Soft Skills -->
-  <div class="mb-8">
-    <h3 class="text-2xl font-semibold text-white mb-4">Habilidades Blandas</h3>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-      <div class="flex items-center justify-center bg-black text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <p>Comunicación efectiva</p>
-      </div>
-      <div class="flex items-center justify-center bg-black text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <p>Trabajo en equipo</p>
-      </div>
-      <div class="flex items-center justify-center bg-black text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <p>Resolución de problemas</p>
-      </div>
-      <div class="flex items-center justify-center bg-black text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <p>Adaptabilidad</p>
-      </div>
-      <div class="flex items-center justify-center bg-black text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <p>Liderazgo</p>
-      </div>
-    </div>
+</div>
+<!-- Fondo del modal -->
+<div
+  *ngIf="modalVisible"
+  class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 transition-opacity duration-300"
+  [@modalBackdrop]>
+  <!-- Fondo con clic para cerrar -->
+  <div
+    class="absolute inset-0"
+    (click)="closeModal()"
+  ></div>
+<!-- Modal -->
+<div
+  *ngIf="modalVisible"
+  class="fixed inset-0 flex items-center justify-center z-50 bg-black/50 bg-opacity-70"
+>
+  <div
+    class="bg-white text-black p-6 rounded-lg shadow-2xl max-w-md w-full mx-4 animate-fadeIn scale-95 hover:scale-100 transition-transform duration-300"
+    @modalContent>
+    
+    <h4 class="text-xl font-semibold mb-2">{{ selectedSkill }}</h4>
+    <p class="mb-4">{{ selectedDescription }}</p>
+    <button (click)="closeModal()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors">
+      Cerrar
+    </button>
   </div>
+</div>
+</div>
+
+
 </section>
 
 
@@ -463,6 +595,40 @@
       <p>WhatsApp: <a href="http://api.whatsapp.com/send?phone=593997339982" target="_blank" class="text-teal-400 hover:underline">Enviar mensaje</a></p>
     </div>
   </section>
+<script>
+  let scrollInterval;
+
+  function handleAutoScroll(e) {
+    console.log('probando')
+    const container = document.getElementById('scroll-container');
+    const rect = container.getBoundingClientRect();
+    const mouseX = e.clientX;
+    const edgeSize = 100;
+
+    clearInterval(scrollInterval);
+
+    if (mouseX < rect.left + edgeSize) {
+      scrollInterval = setInterval(() => {
+        container.scrollLeft -= 10;
+      }, 20);
+    } else if (mouseX > rect.right - edgeSize) {
+      scrollInterval = setInterval(() => {
+        container.scrollLeft += 10;
+      }, 20);
+    }
+  }
+
+  function stopAutoScroll() {
+    clearInterval(scrollInterval);
+  }
+</script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
 
 </body>
 </html>
