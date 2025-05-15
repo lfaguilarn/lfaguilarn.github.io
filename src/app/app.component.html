@@ -222,113 +222,124 @@
 </section>
 
 
-<!-- Education & Certifications -->
-<section id="education" class="p-10">
-  <h2 class="text-3xl font-bold mb-6 text-center text-white">Educación</h2>
-  <!-- Contenedor con scroll y AOS -->
-    <div id="scroll-container"
-         class="relative flex gap-4 overflow-x-auto scrollbar-hide pb-2 transition-all duration-300"
-         data-aos="fade-up"
-         onmousemove="handleAutoScroll(event)"
-         onmouseleave="stopAutoScroll()"
-    >
-  <!-- Education Section -->
-  <div class="grid md:grid-cols-2 gap-6">
-    
-    <!-- Universidad Técnica de Machala -->
-    <div class="bg-black text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-      <div class="flex items-center mb-4">
-        <img src="assets/utmach.jpg" alt="UTMACH Logo" class="w-16 h-16 mr-4" />
-        <div>
-          <p class="font-semibold text-xl">Universidad Técnica de Machala (UTMACH)</p>
-          <p class="text-gray-300">Ingeniero de Sistemas (2014-2019)</p>
-        </div>
-      </div>
-    </div>
-    <!-- Universidad Internacional de la Rioja -->
-    <div class="bg-black text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-      <div class="flex items-center mb-4">
-        <img src="assets/unir-logo.jpeg" alt="UNIR Logo" class="w-30 h-16 mr-4" />
-        <div>
-          <p class="font-semibold text-xl">Universidad Internacional de la Rioja (UNIR)</p>
-          <p class="text-gray-300">Master en DevOps (2023-2024)</p>
-        </div>
-      </div>
-    </div>
+<!-- Educación y Certificaciones -->
+<section id="education" class="px-6 py-10 bg-gray-900 text-white">
+  <h2 class="text-3xl font-bold mb-8 text-center text-white">Educación</h2>
+
+<!-- Educación (scroll horizontal) -->
+<div id="scroll-container"
+     class="relative flex gap-6 overflow-x-auto scrollbar-hide pb-4 px-4 scroll-px-4 transition-all duration-300 snap-x snap-mandatory"
+     data-aos="fade-up"
+     onmousemove="handleAutoScroll(event)"
+     onmouseleave="stopAutoScroll()"
+>
+<!-- Tarjeta UTMACH -->
+<div class="snap-center flex-shrink-0 bg-black rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex overflow-hidden max-w-fit">
+  <!-- Sección izquierda -->
+  <div class="p-6 flex items-start">
+    <img src="assets/utmach.jpg" alt="UTMACH Logo" class="w-16 h-16 rounded mr-4" />
+    <div>
+      <p class="font-semibold text-lg">Universidad Técnica de Machala</p>
+      <p class="text-gray-300 text-sm">Ingeniero de Sistemas (2014–2019)</p>
     </div>
   </div>
+  <!-- Sección derecha -->
+  <div class="px-4 py-2 bg-gray-800 text-sm text-gray-200 flex items-center justify-center max-w-[300px] leading-snug">
+    Formación en desarrollo de software, redes y fundamentos de ingeniería informática.
+  </div>
+</div>
 
-  <!-- Certifications Section -->
-  <h2 class="text-3xl font-bold mt-10 mb-6 text-center text-white">Certificaciones</h2>
-  <!-- Contenedor con scroll y AOS -->
-    <div id="scroll-container"
-         class="relative flex gap-4 overflow-x-auto scrollbar-hide pb-2 transition-all duration-300"
-         data-aos="fade-up"
-         onmousemove="handleAutoScroll(event)"
-         onmouseleave="stopAutoScroll()"
-    >
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <!-- Udemy Certification -->
-    <div class="flex items-center justify-between bg-black text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-      <div class="flex items-center">
-        <img src="assets/udemy-logo.png" alt="Udemy Logo" class="w-30 h-12 mr-4" />
-        <div>
-          <p class="font-semibold text-xl">Udemy</p>
-          <p class="text-gray-300">Angular y SpringBoot (2025)</p>
-        </div>
-      </div>
-      <a href="http://ude.my/UC-f8b5b2b6-d0a2-4933-90d5-ec4e3d92c48d" target="_blank" class="bg-teal-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-teal-600 transition-colors duration-300">Ver Certificado</a>
-    </div>
-
-    <!-- Azure Certification -->
-    <div class="flex items-center justify-between bg-black text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-      <div class="flex items-center">
-        <img src="assets/azure-logo.jpg" alt="Azure Logo" class="w-20 h-12 mr-4" />
-        <div>
-          <p class="font-semibold text-xl">Azure</p>
-          <p class="text-gray-300">Azure Fundamentals (2023)</p>
-        </div>
-      </div>
-      <a href="assets/azure.pdf" target="_blank" class="bg-teal-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-teal-600 transition-colors duration-300">Ver Certificado</a>
-    </div>
-
-    <!-- Cisco Certification -->
-    <div class="flex items-center justify-between bg-black text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-      <div class="flex items-center">
-        <img src="assets/cisco-logo.jpg" alt="Cisco Logo" class="w-20 h-12 mr-4" />
-        <div>
-          <p class="font-semibold text-xl">Cisco</p>
-          <p class="text-gray-300">Internet de Todo (2020)</p>
-        </div>
-      </div>
-      <a href="assets/cisco.pdf" target="_blank" class="bg-teal-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-teal-600 transition-colors duration-300">Ver Certificado</a>
-    </div>
-
-    <!-- UTMACH Certification (Tecnología de Información y Comunicación) -->
-    <div class="flex items-center justify-between bg-black text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-      <div class="flex items-center">
-        <img src="assets/utmach.jpg" alt="UTMACH Logo" class="w-25 h-25 mr-4" />
-        <div>
-          <p class="font-semibold text-xl">UTMACH</p>
-          <p class="text-gray-300">Tecnología de Información y Comunicación (2019)</p>
-        </div>
-      </div>
-      <a href="assets/utmach.pdf" target="_blank" class="bg-teal-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-teal-600 transition-colors duration-300">Ver Certificado</a>
-    </div>
-
-    <!-- UTMACH Certification (Introduction of Internet of Everything) -->
-    <div class="flex items-center justify-between bg-black text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-      <div class="flex items-center">
-        <img src="assets/utmach.jpg" alt="UTMACH Logo" class="w-25 h-25 mr-4" />
-        <div>
-          <p class="font-semibold text-xl">UTMACH</p>
-          <p class="text-gray-300">Introduction of Internet of Everything (2019)</p>
-        </div>
-      </div>
-      <a href="assets/IOT.pdf" target="_blank" class="bg-teal-500 text-white px-6 py-2 rounded-lg shadow-md hover:bg-teal-600 transition-colors duration-300">Ver Certificado</a>
+<!-- Tarjeta UNIR -->
+<div class="snap-center flex-shrink-0 bg-black rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex overflow-hidden max-w-fit">
+  <!-- Sección izquierda -->
+  <div class="p-6 flex items-start">
+    <img src="assets/unir-logo.jpeg" alt="UNIR Logo" class="w-16 h-16 object-cover rounded-full mr-4" />
+    <div>
+      <p class="font-semibold text-lg">Universidad Internacional de la Rioja</p>
+      <p class="text-gray-300 text-sm">Máster en DevOps (2023–2024)</p>
     </div>
   </div>
+  <!-- Sección derecha -->
+  <div class="px-4 py-2 bg-gray-800 text-sm text-gray-200 flex items-center justify-center max-w-[300px] leading-snug">
+    Especialización en integración continua, automatización, cloud y metodologías ágiles.
+  </div>
+</div>
+
+
+
+</div>
+
+
+  <!-- Certificaciones -->
+  <h2 class="text-3xl font-bold mt-12 mb-8 text-center">Certificaciones</h2>
+
+  <!-- Certificaciones (scroll horizontal) -->
+  <div id="scroll-container"
+       class="relative flex gap-6 overflow-x-auto scrollbar-hide pb-4 transition-all duration-300 snap-x snap-mandatory"
+       data-aos="fade-up"
+       onmousemove="handleAutoScroll(event)"
+       onmouseleave="stopAutoScroll()"
+  >
+    <!-- Tarjeta Udemy -->
+    <div class="min-w-[320px] snap-center flex-shrink-0 bg-black p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+      <div class="flex items-center mb-4">
+        <img src="assets/udemy-logo.png" alt="Udemy Logo" class="w-20 h-20 mr-4 rounded-full" />
+        <div>
+          <p class="font-semibold text-lg">Udemy</p>
+          <p class="text-gray-300 text-sm">Angular y SpringBoot (2025)</p>
+        </div>
+      </div>
+      <a href="http://ude.my/UC-f8b5b2b6-d0a2-4933-90d5-ec4e3d92c48d" target="_blank" class="mt-auto bg-teal-500 text-white px-4 py-2 rounded-md shadow hover:bg-teal-600 transition">Ver Certificado</a>
     </div>
+
+    <!-- Tarjeta Azure -->
+    <div class="min-w-[320px] snap-center flex-shrink-0 bg-black p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+      <div class="flex items-center mb-4">
+        <img src="assets/azure-logo.jpg" alt="Azure Logo" class="w-20 h-20 mr-4 rounded-full" />
+        <div>
+          <p class="font-semibold text-lg">Azure</p>
+          <p class="text-gray-300 text-sm">Azure Fundamentals (2023)</p>
+        </div>
+      </div>
+      <a href="assets/azure.pdf" target="_blank" class="mt-auto bg-teal-500 text-white px-4 py-2 rounded-md shadow hover:bg-teal-600 transition">Ver Certificado</a>
+    </div>
+
+    <!-- Tarjeta Cisco -->
+    <div class="min-w-[320px] snap-center flex-shrink-0 bg-black p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+      <div class="flex items-center mb-4">
+        <img src="assets/cisco-logo.jpg" alt="Cisco Logo" class="w-20 h-20 mr-4 rounded-full" />
+        <div>
+          <p class="font-semibold text-lg">Cisco</p>
+          <p class="text-gray-300 text-sm">Internet de Todo (2020)</p>
+        </div>
+      </div>
+      <a href="assets/cisco.pdf" target="_blank" class="mt-auto bg-teal-500 text-white px-4 py-2 rounded-md shadow hover:bg-teal-600 transition">Ver Certificado</a>
+    </div>
+
+    <!-- UTMACH TIC -->
+    <div class="min-w-[320px] snap-center flex-shrink-0 bg-black p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+      <div class="flex items-center mb-4">
+        <img src="assets/utmach.jpg" alt="UTMACH Logo" class="w-20 h-20 mr-4 rounded" />
+        <div>
+          <p class="font-semibold text-lg">UTMACH</p>
+          <p class="text-gray-300 text-sm">Tecnología de Información y Comunicación (2019)</p>
+        </div>
+      </div>
+      <a href="assets/utmach.pdf" target="_blank" class="mt-auto bg-teal-500 text-white px-4 py-2 rounded-md shadow hover:bg-teal-600 transition">Ver Certificado</a>
+    </div>
+
+    <!-- UTMACH IoT -->
+    <div class="min-w-[320px] snap-center flex-shrink-0 bg-black p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+      <div class="flex items-center mb-4">
+        <img src="assets/utmach.jpg" alt="UTMACH Logo" class="w-20 h-20 mr-4 rounded" />
+        <div>
+          <p class="font-semibold text-lg">UTMACH</p>
+          <p class="text-gray-300 text-sm">Introduction of Internet of Everything (2019)</p>
+        </div>
+      </div>
+      <a href="assets/IOT.pdf" target="_blank" class="mt-auto bg-teal-500 text-white px-4 py-2 rounded-md shadow hover:bg-teal-600 transition">Ver Certificado</a>
+    </div>
+  </div>
 </section>
 
 
@@ -336,90 +347,52 @@
 <section id="skills" class="p-10 bg-gray-900">
   <h2 class="text-3xl font-bold text-center text-white mb-8">Habilidades</h2>
 
-<!-- Sección combinada de Lenguajes e IDE -->
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-  <!-- Lenguajes de Programación (2/3) -->
-  <div class="lg:col-span-2">
-    <h3 class="text-2xl font-semibold text-white mb-4">Lenguajes de Programación</h3>
-
-    <!-- Contenedor con scroll y AOS -->
-    <div id="scroll-container"
-         class="relative flex gap-4 overflow-x-auto scrollbar-hide pb-2 transition-all duration-300"
-         data-aos="fade-up"
-         onmousemove="handleAutoScroll(event)"
-         onmouseleave="stopAutoScroll()"
-    >
-      <!-- Tarjetas -->
-      <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-        <img src="assets/csharp-logo.png" alt="C#" class="w-12 h-12 mr-2" />
-        <p class="text-sm sm:text-base hidden md:block">C#</p>
-      </div>
-
-      <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-        <img src="assets/java-logo.png" alt="Java" class="w-8 h-8 mr-2" />
-        <p class="text-sm sm:text-base hidden md:block">Java SpringBoot</p>
-      </div>
-
-      <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-        <img src="assets/visual-basic-logo.png" alt="VB" class="w-8 h-8 mr-2" />
-        <p class="text-sm sm:text-base hidden md:block">Visual Basic</p>
-      </div>
-
-      <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-        <img src="assets/angular-logo.png" alt="Angular" class="w-8 h-8 mr-2" />
-        <p class="text-sm sm:text-base hidden md:block">Angular</p>
-      </div>
-
-      <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-        <img src="assets/javascript-logo.png" alt="JavaScript" class="w-8 h-8 mr-2" />
-        <p class="text-sm sm:text-base hidden md:block">JavaScript</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- IDE (1/3) -->
-  <div class="lg:col-span-1">
-    <h3 class="text-2xl font-semibold text-white mb-4">IDE</h3>
-
-    <!-- Contenedor con scroll y AOS -->
-    <div id="scroll-container-db"
-         class="relative flex gap-4 overflow-x-auto scrollbar-hide pb-2 transition-all duration-300"
-         data-aos="fade-up"
-         onmousemove="handleAutoScrollDB(event)"
-         onmouseleave="stopAutoScrollDB()"
-    >
-      <!-- Tarjetas -->
-      <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-        <img src="assets/visual-studio-logo.png" alt="Visual Studio Code" class="w-12 h-12 mr-4" />
-        <p>Visual Studio Code</p>
-      </div>
-
-      <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-        <img src="assets/sublime-text-logo.png" alt="SublimeText" class="w-12 h-12 mr-4" />
-        <p>SublimeText</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-  <!-- Sección combinada de Versionamiento, Base de datos y Metodologias -->
-<div class="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-8">
-
-<!-- Base de Datos -->
-  <div class="lg:col-span-3">
-  <h3 class="text-2xl font-semibold text-white mb-4">Base de Datos</h3>
-  
-  <!-- Contenedor con scroll y AOS -->
-  <div id="scroll-container-db"
-       class="relative flex gap-4 overflow-x-auto scrollbar-hide pb-2 transition-all duration-300"
+<!-- Contenedor único con todas las habilidades -->
+<div class="grid grid-cols-1 gap-8 mb-8">
+  <div id="scroll-container"
+       class="relative flex flex-wrap justify-center gap-4 overflow-x-auto scrollbar-hide pb-2 transition-all duration-300"
        data-aos="fade-up"
-       onmousemove="handleAutoScrollDB(event)"
-       onmouseleave="stopAutoScrollDB()"
+       onmousemove="handleAutoScroll(event)"
+       onmouseleave="stopAutoScroll()"
   >
-    <!-- Tarjetas -->
+    <!-- Lenguajes -->
+    <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+      <img src="assets/csharp-logo.png" alt="C#" class="w-12 h-12 mr-2" />
+      <p class="text-sm sm:text-base hidden md:block">C#</p>
+    </div>
+
+    <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+      <img src="assets/java-logo.png" alt="Java" class="w-8 h-8 mr-2" />
+      <p class="text-sm sm:text-base hidden md:block">Java SpringBoot</p>
+    </div>
+
+    <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+      <img src="assets/visual-basic-logo.png" alt="VB" class="w-8 h-8 mr-2" />
+      <p class="text-sm sm:text-base hidden md:block">Visual Basic</p>
+    </div>
+
+    <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+      <img src="assets/angular-logo.png" alt="Angular" class="w-8 h-8 mr-2" />
+      <p class="text-sm sm:text-base hidden md:block">Angular</p>
+    </div>
+
+    <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+      <img src="assets/javascript-logo.png" alt="JavaScript" class="w-8 h-8 mr-2" />
+      <p class="text-sm sm:text-base hidden md:block">JavaScript</p>
+    </div>
+
+    <!-- IDEs -->
+    <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+      <img src="assets/visual-studio-logo.png" alt="Visual Studio Code" class="w-12 h-12 mr-4" />
+      <p>Visual Studio Code</p>
+    </div>
+
+    <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+      <img src="assets/sublime-text-logo.png" alt="SublimeText" class="w-12 h-12 mr-4" />
+      <p>SublimeText</p>
+    </div>
+
+    <!-- Bases de datos -->
     <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
       <img src="assets/oracle-logo.png" alt="Oracle" class="w-20 h-12 mr-0" />
       <p class="text-sm sm:text-base hidden md:block">Oracle</p>
@@ -439,50 +412,24 @@
       <img src="assets/mysql-logo.png" alt="MySQL" class="w-12 h-12 mr-4" />
       <p class="text-sm sm:text-base hidden md:block">MySQL</p>
     </div>
-  </div>
-</div>
-<!-- Version Control -->
-  <div>
-  <h3 class="text-2xl font-semibold text-white mb-4">Versionamiento</h3>
 
-  <!-- Contenedor con scroll y AOS -->
-  <div id="scroll-container"
-       class="relative flex gap-4 overflow-x-auto scrollbar-hide pb-2 transition-all duration-300"
-       data-aos="fade-up"
-       onmousemove="handleAutoScroll(event)"
-       onmouseleave="stopAutoScroll()"
-  >
-    <!-- Tarjetas -->
+    <!-- Versionamiento -->
     <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
       <img src="assets/gitlab-logo.png" alt="GitLab" class="w-35 h-12 mr-4" />
-      <p></p>
+      <p class="text-sm sm:text-base hidden md:block">GitLab</p>
     </div>
 
-  </div>
-</div>
-<!-- Metodologías Ágiles -->
-<div>
-  <h3 class="text-2xl font-semibold text-white mb-4">Metodologías Ágiles</h3>
-  
-  <!-- Contenedor con scroll y AOS -->
-  <div id="scroll-container-db"
-       class="relative flex gap-4 overflow-x-auto scrollbar-hide pb-2 transition-all duration-300"
-       data-aos="fade-up"
-       onmousemove="handleAutoScrollDB(event)"
-       onmouseleave="stopAutoScrollDB()"
-  >
-    <!-- Tarjetas -->
+    <!-- Metodologías ágiles -->
     <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
       <img src="assets/scrum-logo.png" alt="Scrum" class="w-12 h-12 mr-4" />
-        <p>Scrum</p>
+      <p>Scrum</p>
     </div>
 
     <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
       <img src="assets/xp-logo.png" alt="XP" class="w-12 h-12 mr-4" />
-        <p>XP</p>
+      <p>XP</p>
     </div>
   </div>
-</div>
 </div>
 
 <!-- Version Control -->
@@ -530,44 +477,41 @@
 <!-- Soft Skills -->
 <div class="mb-8" data-aos="fade-up" data-aos-duration="800">
   <h3 class="text-2xl font-semibold text-white mb-4">Habilidades Blandas</h3>
+
   <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
     <div
-      *ngFor="let skill of skillKeys"
-      class="flex items-center justify-center bg-black text-white p-6 rounded-lg shadow-lg 
-             transform transition-all duration-300 hover:scale-105 hover:bg-indigo-600 cursor-pointer"
-      (click)="openModal(skill)"
+      *ngFor="let skill of skillList; let i = index"
+      class="relative group perspective h-20"
+      (click)="toggleFlip(i)"
     >
-      <p class="text-center">{{ skill }}</p>
+      <div
+        class="transition-transform duration-700 transform-style preserve-3d w-full h-16 rounded-lg shadow-lg"
+        [ngClass]="{
+          'rotate-y-180': flippedCards[i],
+          'group-hover:rotate-y-180': true
+        }"
+      >
+        <!-- Cara frontal -->
+        <div
+          class="absolute inset-0 backface-hidden bg-black text-white p-6 flex items-center justify-center rounded-lg"
+        >
+          <p class="text-center font-semibold">{{ skill.name }}</p>
+        </div>
+
+        <!-- Cara trasera -->
+        <div
+          class="absolute inset-0 backface-hidden rotate-y-180 bg-indigo-600 text-white p-4 flex items-center justify-center rounded-lg"
+        >
+          <p class="text-sm text-center leading-snug">
+            {{ skill.description }}
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-<!-- Fondo del modal -->
-<div
-  *ngIf="modalVisible"
-  class="fixed inset-0 bg-black/40 flex items-center justify-center z-50 transition-opacity duration-300"
-  [@modalBackdrop]>
-  <!-- Fondo con clic para cerrar -->
-  <div
-    class="absolute inset-0"
-    (click)="closeModal()"
-  ></div>
-<!-- Modal -->
-<div
-  *ngIf="modalVisible"
-  class="fixed inset-0 flex items-center justify-center z-50 bg-black/50 bg-opacity-70"
->
-  <div
-    class="bg-white text-black p-6 rounded-lg shadow-2xl max-w-md w-full mx-4 animate-fadeIn scale-95 hover:scale-100 transition-transform duration-300"
-    @modalContent>
-    
-    <h4 class="text-xl font-semibold mb-2">{{ selectedSkill }}</h4>
-    <p class="mb-4">{{ selectedDescription }}</p>
-    <button (click)="closeModal()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors">
-      Cerrar
-    </button>
-  </div>
-</div>
-</div>
+
+
 
 
 </section>

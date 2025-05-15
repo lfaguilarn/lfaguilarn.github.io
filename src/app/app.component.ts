@@ -35,6 +35,7 @@ export class AppComponent implements OnInit {
   title = 'portfolio';
   ngOnInit(): void {
     AOS.init();
+    this.flippedCards = new Array(this.skillList.length).fill(false);
   }
   //para el modal de las soft skills
   modalVisible = false;
@@ -46,6 +47,33 @@ export class AppComponent implements OnInit {
     'Adaptabilidad': 'Responder positivamente a cambios, nuevas situaciones y desafíos imprevistos.',
     'Liderazgo': 'Guiar, inspirar y motivar a un equipo hacia el logro de metas compartidas.',
   };
+
+  skillList = [
+  {
+    name: 'Comunicación',
+    description: 'Capacidad para expresar ideas claramente y escuchar activamente.'
+  },
+  {
+    name: 'Trabajo en equipo',
+    description: 'Colaboración efectiva con otros para alcanzar metas comunes.'
+  },
+  {
+    name: 'Adaptabilidad',
+    description: 'Capacidad de ajustarse rápidamente a los cambios.'
+  },
+  {
+    name: 'Pensamiento crítico',
+    description: 'Evaluación objetiva de situaciones para tomar decisiones.'
+  },
+  {
+    name: 'Liderazgo',
+    description: 'Influir y guiar a otros hacia el logro de objetivos.'
+  }
+];
+flippedCards: boolean[] = [];
+toggleFlip(index: number) {
+  this.flippedCards[index] = !this.flippedCards[index];
+}
   // ✅ Creamos una lista de habilidades a partir del objeto
   skillKeys: string[] = Object.keys(this.skillDescriptions);
   // Control del modal
