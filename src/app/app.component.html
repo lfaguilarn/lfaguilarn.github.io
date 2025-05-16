@@ -10,20 +10,143 @@
 <body class="bg-black text-white font-sans">
 
   <!-- Navbar -->
-<nav class="bg-gray-900 p-4 shadow-lg sticky top-0 z-50">
-  <ul class="flex justify-center space-x-6 text-lg text-white">
-    <li><a href="#about" class="hover:text-teal-400">About</a></li>
-    <li><a href="#projects" class="hover:text-teal-400">Projects</a></li>
-    <li><a href="#experience" class="hover:text-teal-400">Experience</a></li>
-    <li><a href="#education" class="hover:text-teal-400">Education & Certifications</a></li>
-    <li><a href="#skills" class="hover:text-teal-400">Skills</a></li>
-    <li><a href="#contact" class="hover:text-teal-400">Get in Touch</a></li>
-  </ul>
+<nav class="fixed top-0 left-0 right-0 z-50 bg-gray-800">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <!-- Mobile menu button-->
+        <button type="button" (click)="toggleMobileMenu()" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="absolute -inset-0.5"></span>
+          <span class="sr-only">Open main menu</span>
+          <!--
+            Icon when menu is closed.
+
+            Menu open: "hidden", Menu closed: "block"
+          -->
+          <svg class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <!--
+            Icon when menu is open.
+
+            Menu open: "block", Menu closed: "hidden"
+          -->
+          <svg class="hidden size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="flex shrink-0 items-center">
+          <img class="hidden h-8 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+        </div>
+        <div class="hidden sm:ml-6 sm:block">
+          <div class="flex space-x-4">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <!-- <a href="#about" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">About</a> -->
+            <a href="#about" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">About</a>
+            <a href="#projects" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+            <a href="#experience" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Experience</a>
+            <a href="#education" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Education & Certifications</a>
+            <a href="#skills" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Skills</a>
+            <a href="#contact" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Get in Touch</a>
+          </div>
+          <!-- <div class="p-4">
+            <label for="lang-select" class="mr-2 text-gray-700">{{ 'LANGUAGE' | translate }}:</label>
+            <select
+              id="lang-select"
+              (change)="switchLanguage($event)"
+              class="border rounded px-2 py-1"
+            >
+              <option value="es">Español</option>
+              <option value="en">English</option>
+            </select>
+          </div>
+          <h1 class="text-2xl mt-4 font-bold">{{ 'GREETING' | translate }}</h1> -->
+
+          <!-- combobox de google translate -->
+           <!-- <div class="p-4">
+            <label for="lang-select" class="mr-2 text-gray-700">Idioma:</label>
+            <select
+              id="lang-select"
+              (change)="translatePage($event)"
+              class="border rounded px-2 py-1"
+            >
+              <option value="">Selecciona</option>
+              <option value="es">Español</option>
+              <option value="en">English</option>
+            </select>
+          </div> -->
+
+        </div>
+      </div>
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+        <!-- <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
+          <span class="absolute -inset-1.5"></span>
+          <span class="sr-only">View notifications</span>
+          <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+          </svg>
+        </button> -->
+
+        <!-- Profile dropdown -->
+        <div class="relative ml-3">
+          <div>
+            <button type="button"
+              (click)="toggleProfileMenu()"
+              class="relative flex rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
+              id="user-menu-button"
+              aria-haspopup="true">
+              <span class="absolute -inset-1.5"></span>
+              <span class="sr-only">Open user menu</span>
+              <img class="size-12 rounded-full" src="Logo LFA redondo.png" alt="">
+            </button>
+
+          </div>
+
+          <!--
+            Dropdown menu, show/hide based on menu state.
+
+            Entering: "transition ease-out duration-100"
+              From: "transform opacity-0 scale-95"
+              To: "transform opacity-100 scale-100"
+            Leaving: "transition ease-in duration-75"
+              From: "transform opacity-100 scale-100"
+              To: "transform opacity-0 scale-95"
+          -->
+          <div *ngIf="isProfileMenuOpen" class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+            <!-- Active: "bg-gray-100 outline-hidden", Not Active: "" -->
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu, show/hide based on menu state. -->
+  <div class="{{isMobileMenuOpen?'block':'hidden'}} sm:hidden" id="mobile-menu">
+    <div class="space-y-1 px-2 pt-2 pb-3">
+      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+       <a href="#about" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">About</a>
+            <a href="#projects" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+            <a href="#experience" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Experience</a>
+            <a href="#education" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Education & Certifications</a>
+            <a href="#skills" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Skills</a>
+            <a href="#contact" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Get in Touch</a>
+      <!-- <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Dashboard</a>
+      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
+      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a> -->
+    </div>
+  </div>
 </nav>
+
 
 <!-- About Section -->
 <section id="about"
-  class="min-h-[calc(100vh-64px)] bg-black text-white flex items-center justify-center px-4 py-12">
+  class="pt-18 min-h-[calc(100vh-64px)] bg-black text-white flex items-center justify-center px-4 py-12">
   <div class="max-w-4xl text-center" data-aos="fade-up" data-aos-duration="1000">
     <img src="assets/ProfilePhoto.jpg" alt="Foto profesional de Luis Fernando"
       class="w-64 h-64 rounded-full mx-auto mb-6 border-4 border-white">
@@ -61,7 +184,6 @@
     </a>
   </div>
 </section>
-
 
   <!-- Projects -->
 <section class="bg-black text-white py-6 px-6" id="projects">
@@ -131,8 +253,6 @@
   </div>
 </section>
 
-
-
   <!-- Experience -->
 <section id="experience" class="py-6 bg-black text-white w-full">
   <h2 class="text-4xl font-bold text-center mb-12">Experiencia</h2>
@@ -140,8 +260,7 @@
     <div class="flex justify-center gap-6 px-4 snap-x snap-mandatory scroll-pl-10">
       <!-- Contenedor con scroll y AOS -->
     <div id="scroll-container"
-         class="relative flex justify-center gap-4 overflow-x-auto scrollbar-hide pb-2 px-4 transition-all duration-300"
-         data-aos="fade-up"
+         class="relative flex flex-wrap justify-center gap-4 overflow-x-auto scrollbar-hide pb-2 transition-all duration-300 aos-init aos-animate"data-aos="fade-up"
          onmousemove="handleAutoScroll(event)"
          onmouseleave="stopAutoScroll()"
     >
@@ -221,14 +340,13 @@
   </style>
 </section>
 
-
 <!-- Educación y Certificaciones -->
 <section id="education" class="px-6 py-10 bg-gray-900 text-white">
   <h2 class="text-3xl font-bold mb-8 text-center text-white">Educación</h2>
 
 <!-- Educación (scroll horizontal) -->
 <div id="scroll-container"
-     class="relative flex justify-center gap-6 overflow-x-auto scrollbar-hide pb-4 px-4 scroll-px-4 transition-all duration-300 snap-x snap-mandatory"
+     class="relative flex flex-wrap justify-center gap-4 overflow-x-auto scrollbar-hide pb-2 transition-all duration-300 aos-init aos-animate"
      data-aos="fade-up"
      onmousemove="handleAutoScroll(event)"
      onmouseleave="stopAutoScroll()"
@@ -264,18 +382,15 @@
     Especialización en integración continua, automatización, cloud y metodologías ágiles.
   </div>
 </div>
-
-
-
 </div>
-
 
   <!-- Certificaciones -->
   <h2 class="text-3xl font-bold mt-12 mb-8 text-center">Certificaciones</h2>
 
   <!-- Certificaciones (scroll horizontal) -->
   <div id="scroll-container"
-       class="relative flex justify-center gap-6 overflow-x-auto scrollbar-hide pb-4 transition-all duration-300 snap-x snap-mandatory"
+      class="relative flex gap-6 overflow-x-auto scrollbar-hide pb-4 transition-all duration-300 snap-x snap-mandatory aos-init aos-animate"
+      class="relative flex flex-wrap justify-center gap-4 overflow-x-auto scrollbar-hide pb-2 transition-all duration-300 aos-init aos-animate"
        data-aos="fade-up"
        onmousemove="handleAutoScroll(event)"
        onmouseleave="stopAutoScroll()"
@@ -301,7 +416,7 @@
           <p class="text-gray-300 text-sm">Azure Fundamentals (2023)</p>
         </div>
       </div>
-      <a href="assets/azure.pdf" target="_blank" class="mt-auto bg-teal-500 text-white px-4 py-2 rounded-md shadow hover:bg-teal-600 transition">Ver Certificado</a>
+      <a href="assets/Azure Fundamentals.pdf" target="_blank" class="mt-auto bg-teal-500 text-white px-4 py-2 rounded-md shadow hover:bg-teal-600 transition">Ver Certificado</a>
     </div>
 
     <!-- Tarjeta Cisco -->
@@ -342,7 +457,6 @@
   </div>
 </section>
 
-
 <!-- Skills Section -->
 <section id="skills" class="p-10 bg-gray-900">
   <h2 class="text-3xl font-bold text-center text-white mb-8">Habilidades</h2>
@@ -357,76 +471,76 @@
   >
     <!-- Lenguajes -->
     <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-      <img src="assets/csharp-logo.png" alt="C#" class="w-12 h-12 mr-2" />
+      <img src="assets/csharp-logo.png" alt="C#" class="w-10 h-10 mr-2" />
       <p class="text-sm sm:text-base hidden md:block">C#</p>
     </div>
 
     <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-      <img src="assets/java-logo.png" alt="Java" class="w-8 h-8 mr-2" />
+      <img src="assets/java-logo.png" alt="Java" class="w-10 h-10 mr-2" />
       <p class="text-sm sm:text-base hidden md:block">Java SpringBoot</p>
     </div>
 
     <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-      <img src="assets/visual-basic-logo.png" alt="VB" class="w-8 h-8 mr-2" />
+      <img src="assets/visual-basic-logo.png" alt="VB" class="w-10 h-10 mr-2" />
       <p class="text-sm sm:text-base hidden md:block">Visual Basic</p>
     </div>
 
     <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-      <img src="assets/angular-logo.png" alt="Angular" class="w-8 h-8 mr-2" />
+      <img src="assets/angular-logo.png" alt="Angular" class="w-10 h-10 mr-2" />
       <p class="text-sm sm:text-base hidden md:block">Angular</p>
     </div>
 
     <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-      <img src="assets/javascript-logo.png" alt="JavaScript" class="w-8 h-8 mr-2" />
+      <img src="assets/javascript-logo.png" alt="JavaScript" class="w-10 h-10 mr-2" />
       <p class="text-sm sm:text-base hidden md:block">JavaScript</p>
     </div>
 
     <!-- IDEs -->
     <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-      <img src="assets/visual-studio-logo.png" alt="Visual Studio Code" class="w-12 h-12 mr-4" />
+      <img src="https://cdn.worldvectorlogo.com/logos/visual-studio-code-1.svg" alt="Visual Studio Code" class="w-10 h-10 mr-4" />
       <p>Visual Studio Code</p>
     </div>
 
     <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-      <img src="assets/sublime-text-logo.png" alt="SublimeText" class="w-12 h-12 mr-4" />
+      <img src="assets/sublime-text-logo.png" alt="SublimeText" class="w-10 h-10 mr-4" />
       <p>SublimeText</p>
     </div>
 
     <!-- Bases de datos -->
     <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-      <img src="assets/oracle-logo.png" alt="Oracle" class="w-20 h-12 mr-0" />
+      <img src="https://images.icon-icons.com/2699/PNG/512/oracle_logo_icon_168918.png" alt="Oracle" class="w-10 h-10 mr-4" />
       <p class="text-sm sm:text-base hidden md:block">Oracle</p>
     </div>
 
     <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-      <img src="assets/sql-server-logo.png" alt="SQL Server" class="w-12 h-12 mr-4" />
+      <img src="assets/sql-server-logo.png" alt="SQL Server" class="w-10 h-10 mr-4" />
       <p class="text-sm sm:text-base hidden md:block">SQL Server</p>
     </div>
 
     <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-      <img src="assets/postgresql-logo.png" alt="PostgreSQL" class="w-12 h-12 mr-4" />
+      <img src="assets/postgresql-logo.png" alt="PostgreSQL" class="w-10 h-10 mr-4" />
       <p class="text-sm sm:text-base hidden md:block">PostgreSQL</p>
     </div>
 
     <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-      <img src="assets/mysql-logo.png" alt="MySQL" class="w-12 h-12 mr-4" />
+      <img src="assets/mysql-logo.png" alt="MySQL" class="w-10 h-10 mr-4" />
       <p class="text-sm sm:text-base hidden md:block">MySQL</p>
     </div>
 
     <!-- Versionamiento -->
     <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-      <img src="assets/gitlab-logo.png" alt="GitLab" class="w-35 h-12 mr-4" />
+      <img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/144_Gitlab_logo_logos-512.png" alt="GitLab" class="w-10 h-10 mr-4" />
       <p class="text-sm sm:text-base hidden md:block">GitLab</p>
     </div>
 
     <!-- Metodologías ágiles -->
     <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-      <img src="assets/scrum-logo.png" alt="Scrum" class="w-12 h-12 mr-4" />
+      <img src="assets/scrum-logo.png" alt="Scrum" class="w-10 h-10 mr-4" />
       <p>Scrum</p>
     </div>
 
     <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
-      <img src="assets/xp-logo.png" alt="XP" class="w-12 h-12 mr-4" />
+      <img src="assets/xp-logo.png" alt="XP" class="w-10 h-10 mr-4" />
       <p>XP</p>
     </div>
   </div>
@@ -510,14 +624,7 @@
     </div>
   </div>
 </div>
-
-
-
-
 </section>
-
-
-  
 
   <!-- Get in Touch -->
   <section id="contact" class="p-10">
@@ -535,29 +642,26 @@
 </form>
 
     <div class="mt-4 text-center text-sm">
-      <p>Email: <a href="mailto:luisfernandoaguilar56@gmail.com" class="text-teal-400 hover:underline">luisfernandoaguilar56&#64;gmail.com</a></p>
-      <p>WhatsApp: <a href="http://api.whatsapp.com/send?phone=593997339982" target="_blank" class="text-teal-400 hover:underline">Enviar mensaje</a></p>
+      <p>Gmail: <a href="mailto:luisfernandoaguilar56@gmail.com" class="text-teal-400 hover:underline">luisfernandoaguilar56&#64;gmail.com</a></p>
+      <p>WhatsApp: <a href="http://api.whatsapp.com/send?phone=593997339982" target="_blank" class="text-teal-400 hover:underline">Enviar mensaje +(593) 99 733 9982</a></p>
     </div>
   </section>
 <script>
   let scrollInterval;
-
   function handleAutoScroll(e) {
-    console.log('probando')
     const container = document.getElementById('scroll-container');
     const rect = container.getBoundingClientRect();
     const mouseX = e.clientX;
-    const edgeSize = 100;
+    const edgeSize = 10;
 
     clearInterval(scrollInterval);
-
     if (mouseX < rect.left + edgeSize) {
       scrollInterval = setInterval(() => {
-        container.scrollLeft -= 10;
+        container.scrollLeft -= 100;
       }, 20);
     } else if (mouseX > rect.right - edgeSize) {
       scrollInterval = setInterval(() => {
-        container.scrollLeft += 10;
+        container.scrollLeft += 100;
       }, 20);
     }
   }
@@ -575,4 +679,74 @@
 </script>
 
 </body>
+<footer class="bg-gray-900 text-gray-300 py-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-8 gap-8">
+      
+      <!-- Logo y descripción -->
+      <div class="col-span-2">
+        <div class="grid grid-cols-4 items-center gap-4">
+          <div class="col-span-1 flex justify-center">
+            <img class="size-12 rounded-full" src="Logo LFA redondo.png" alt="Logo">
+          </div>
+          <div class="col-span-3">
+            <h2 class="text-2xl font-bold text-white mb-3">Luis Fernando Aguilar Nole</h2>
+          </div>
+        </div>
+        <p class="text-sm text-gray-400">Mi trabajo, mi experiencia y mi compromiso con cada línea de código.</p>
+      </div>
+
+      <!-- Enlaces rápidos -->
+      <div class="col-span-2">
+        <h3 class="text-white text-lg font-semibold mb-4">Enlaces</h3>
+        <ul class="space-y-2">
+          <li><a href="#about" class="hover:text-white transition duration-300">About</a></li>
+          <li><a href="#projects" class="hover:text-white transition duration-300">Projects</a></li>
+          <li><a href="#experience" class="hover:text-white transition duration-300">Experience</a></li>
+          <li><a href="#education" class="hover:text-white transition duration-300">Education & Certifications</a></li>
+          <li><a href="#skills" class="hover:text-white transition duration-300">Skills</a></li>
+          <li><a href="#contact" class="hover:text-white transition duration-300">Get in Touch</a></li>
+        </ul>
+      </div>
+
+      <!-- Contacto -->
+      <div class="col-span-3">
+        <h3 class="text-white text-lg font-semibold mb-4">Contacto</h3>
+        <ul class="space-y-2 text-sm">
+          <li><span class="text-gray-400 font-bold">Gmail:</span> luisfernandoaguilar56&#64;gmail.com</li>
+          <li><span class="text-gray-400 font-bold">Hotmail:</span> luis_fernando.1&#64;hotmail.com</li>
+          <li><span class="text-gray-400 font-bold">Telf:</span> (+593) 99 733 9982</li>
+        </ul>
+      </div>
+
+      <!-- Redes sociales -->
+      <div class="col-span-1">
+        <h3 class="text-white text-lg font-semibold mb-4">¡Hablemos!</h3>
+        <div class="flex space-x-4">
+          <a href="tel:+593997339982" class="text-gray-400 hover:text-white transform hover:scale-110 transition duration-300">
+            <i class="fa-solid fa-phone"></i>
+          </a>
+          <a href="http://api.whatsapp.com/send?phone=593997339982" target="_blank" class="text-gray-400 hover:text-white transform hover:scale-110 transition duration-300">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://m.me/lfernando.chavo16" target="_blank" class="text-gray-400 hover:text-white transform hover:scale-110 transition duration-300">
+            <i class="fa-brands fa-facebook-messenger"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/luis-fernando-1bab44184/" target="_blank" class="text-gray-400 hover:text-white transform hover:scale-110 transition duration-300">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Línea final -->
+    <div class="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-500">
+      © 2025 Luis Aguilar. Todos los derechos reservados.
+    </div>
+  </div>
+</footer>
+
+<!-- Incluye Font Awesome para los iconos de redes sociales -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 </html>

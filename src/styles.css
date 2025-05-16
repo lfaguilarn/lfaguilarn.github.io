@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
-html {
+/* html {
   scroll-behavior: smooth;
-}
+} */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -25,3 +25,27 @@ html {
 .rotate-y-180 {
   transform: rotateY(180deg);
 }
+/* Scroll personalizado para navegadores basados en WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 2px;  /* mucho más delgada */
+    height: 2px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #121212;  /* fondo sutil y oscuro */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #00ffe1;  /* color neón tipo tech */
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00bfa6;
+  }
+  
+  /* Para Firefox */
+  * {
+    scrollbar-width: thin; /* ya es delgada por defecto */
+    scrollbar-color: #000000 #121212;
+  }
