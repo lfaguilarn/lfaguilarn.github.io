@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import * as AOS from 'aos';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import emailjs from 'emailjs-com';
 
 @Component({
   selector: 'app-root',
@@ -183,5 +184,22 @@ translatePage(event: Event) {
     });
   }
 }
+//para la section del contacto
+sendEmail(e: Event) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      'ServiceCV',     // 🔁 Reemplaza con tu ID real
+      'template_m21knz9',  // 🔁 Reemplaza con tu template ID
+      e.target as HTMLFormElement,
+      'ewUWZNiaHoFR0zIBY'      // 🔁 Tu Public Key (User ID nuevo)
+    )
+    .then(() => {
+      alert('Mensaje enviado correctamente');
+    })
+    .catch(() => {
+      alert('Hubo un error al enviar tu mensaje');
+    });
+  }
 
 }

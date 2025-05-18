@@ -44,7 +44,7 @@
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             @if(aboutIsVisible){
-              <a href="#about" class="rounded-md px-3 py-2 text-sm font-medium bg-gray-900 text-white" aria-current="page">About {{aboutIsVisible}}</a>
+              <a href="#about" class="rounded-md px-3 py-2 text-sm font-medium bg-gray-900 text-white" aria-current="page">About</a>
             }@else {
               <a href="#about" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
             }
@@ -648,16 +648,32 @@
 
   <!-- Get in Touch -->
   <section #contact id="contact" class="p-10">
-    <h2 class="text-2xl font-bold mb-4">Contacto</h2>
-    <form 
-  action="https://formspree.io/f/mzzrkvlb" 
-  method="POST" 
-  class="grid gap-4 max-w-md mx-auto"
-  target="_blank"
->
-  <input type="text" name="name" placeholder="Tu nombre" class="p-2 bg-gray-800 text-white border border-gray-600 rounded" required>
-  <input type="email" name="email" placeholder="Tu email" class="p-2 bg-gray-800 text-white border border-gray-600 rounded" required>
-  <textarea name="message" placeholder="Tu mensaje" class="p-2 bg-gray-800 text-white border border-gray-600 rounded h-32" required></textarea>
+    <h2 class="text-center text-2xl font-bold mb-4">Contacto</h2>
+    <!-- <form action="https://formspree.io/f/mzzrkvlb" method="POST" class="grid gap-4 max-w-md mx-auto" target="_blank"> -->
+    <form (submit)="sendEmail($event)" class="grid gap-4 max-w-md mx-auto" target="_blank">
+  <input
+  type="text"
+  name="name"
+  placeholder="Tu nombre"
+  class="p-2 bg-gray-800 text-white placeholder-gray-500 border border-gray-600 rounded"
+  required
+/>
+
+<input
+  type="email"
+  name="email"
+  placeholder="Tu email"
+  class="p-2 bg-gray-800 text-white placeholder-gray-500 border border-gray-600 rounded"
+  required
+/>
+
+<textarea
+  name="message"
+  placeholder="Tu mensaje"
+  class="p-2 bg-gray-800 text-white placeholder-gray-500 border border-gray-600 rounded h-32"
+  required
+></textarea>
+
   <button type="submit" class="bg-teal-500 hover:bg-teal-600 p-2 rounded" target="_blank" >Enviar</button>
 </form>
 
