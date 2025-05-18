@@ -43,13 +43,16 @@
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <!-- <a href="#about" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">About</a> -->
-            <a href="#about" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" aria-current="page">About</a>
-            <a href="#projects" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
-            <a href="#experience" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Experience</a>
-            <a href="#education" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Education & Certifications</a>
-            <a href="#skills" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Skills</a>
-            <a href="#contact" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Get in Touch</a>
+            @if(aboutIsVisible){
+              <a href="#about" class="rounded-md px-3 py-2 text-sm font-medium bg-gray-900 text-white" aria-current="page">About {{aboutIsVisible}}</a>
+            }@else {
+              <a href="#about" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
+            }
+            <a href="#projects" class="rounded-md px-3 py-2 text-sm font-medium {{projectsIsVisible?'bg-gray-900 text-white':'text-gray-300 hover:bg-gray-700 hover:text-white'}}">Projects</a>
+            <a href="#experience" class="rounded-md px-3 py-2 text-sm font-medium {{experienceIsVisible?'bg-gray-900 text-white':'text-gray-300 hover:bg-gray-700 hover:text-white'}}">Experience</a>
+            <a href="#education" class="rounded-md px-3 py-2 text-sm font-medium {{educationIsVisible?'bg-gray-900 text-white':'text-gray-300 hover:bg-gray-700 hover:text-white'}}">Education & Certifications</a>
+            <a href="#skills" class="rounded-md px-3 py-2 text-sm font-medium {{skillsIsVisible?'bg-gray-900 text-white':'text-gray-300 hover:bg-gray-700 hover:text-white'}}">Skills</a>
+            <a href="#contact" class="rounded-md px-3 py-2 text-sm font-medium {{contactIsVisible?'bg-gray-900 text-white':'text-gray-300 hover:bg-gray-700 hover:text-white'}}">Get in Touch</a>
           </div>
           <!-- <div class="p-4">
             <label for="lang-select" class="mr-2 text-gray-700">{{ 'LANGUAGE' | translate }}:</label>
@@ -145,7 +148,7 @@
 
 
 <!-- About Section -->
-<section id="about"
+<section #about id="about"
   class="pt-18 min-h-[calc(100vh-64px)] bg-black text-white flex items-center justify-center px-4 py-12">
   <div class="max-w-4xl text-center" data-aos="fade-up" data-aos-duration="1000">
     <img src="assets/ProfilePhoto.jpg" alt="Foto profesional de Luis Fernando"
@@ -186,7 +189,7 @@
 </section>
 
   <!-- Projects -->
-<section class="bg-black text-white py-6 px-6" id="projects">
+<section #projects class="bg-black text-white py-6 px-6" id="projects">
   <div class="max-w-7xl mx-auto">
     <h2 class="text-3xl font-bold mb-12 text-center">Proyectos Destacados</h2>
 
@@ -208,11 +211,11 @@
           <li>Roles de usuario y gestión de acceso</li>
         </ul>
         <div class="flex flex-wrap gap-2 text-xs">
-          <span class="bg-gray-800 px-2 py-1 rounded">Java</span>
-          <span class="bg-gray-800 px-2 py-1 rounded">Maven</span>
-          <span class="bg-gray-800 px-2 py-1 rounded">Jenkins</span>
-          <span class="bg-gray-800 px-2 py-1 rounded">PostgreSQL</span>
-          <span class="bg-gray-800 px-2 py-1 rounded">GitHub</span>
+          <span class="devicon-java-plain bg-gray-800 px-2 py-1 rounded"> Java</span>
+          <span class="devicon-maven-plain bg-gray-800 px-2 py-1 rounded"> Maven</span>
+          <span class="devicon-jenkins-plain bg-gray-800 px-2 py-1 rounded"> Jenkins</span>
+          <span class="devicon-postgresql-plain bg-gray-800 px-2 py-1 rounded"> PostgreSQL</span>
+          <span class="devicon-github-original bg-gray-800 px-2 py-1 rounded"> GitHub</span>
         </div>
       </div>
 
@@ -226,10 +229,10 @@
           <li>Reportes, clasificación de productos</li>
         </ul>
         <div class="flex flex-wrap gap-2 text-xs">
-          <span class="bg-gray-700 px-2 py-1 rounded">Java</span>
-          <span class="bg-gray-700 px-2 py-1 rounded">Maven</span>
-          <span class="bg-gray-700 px-2 py-1 rounded">PostgreSQL</span>
-          <span class="bg-gray-700 px-2 py-1 rounded">GitHub</span>
+          <span class="devicon-java-plain bg-gray-700 px-2 py-1 rounded"> Java</span>
+          <span class="devicon-maven-plain bg-gray-700 px-2 py-1 rounded"> Maven</span>
+          <span class="devicon-postgresql-plain bg-gray-700 px-2 py-1 rounded"> PostgreSQL</span>
+          <span class="devicon-github-original bg-gray-700 px-2 py-1 rounded"> GitHub</span>
         </div>
       </div>
 
@@ -243,10 +246,10 @@
           <li>Reportes de movimientos y ventas</li>
         </ul>
         <div class="flex flex-wrap gap-2 text-xs">
-          <span class="bg-gray-800 px-2 py-1 rounded">Java</span>
-          <span class="bg-gray-800 px-2 py-1 rounded">Maven</span>
-          <span class="bg-gray-800 px-2 py-1 rounded">PostgreSQL</span>
-          <span class="bg-gray-800 px-2 py-1 rounded">GitHub</span>
+          <span class="devicon-java-plain bg-gray-800 px-2 py-1 rounded"> Java</span>
+          <span class="devicon-maven-plain bg-gray-800 px-2 py-1 rounded"> Maven</span>
+          <span class="devicon-postgresql-plain bg-gray-800 px-2 py-1 rounded"> PostgreSQL</span>
+          <span class="devicon-github-original bg-gray-800 px-2 py-1 rounded"> GitHub</span>
         </div>
       </div>
     </div>
@@ -254,7 +257,7 @@
 </section>
 
   <!-- Experience -->
-<section id="experience" class="py-6 bg-black text-white w-full">
+<section #experience id="experience" class="py-6 bg-black text-white w-full">
   <h2 class="text-4xl font-bold text-center mb-12">Experiencia</h2>
   <div class="overflow-x-auto relative custom-scrollbar">
     <div class="flex justify-center gap-6 px-4 snap-x snap-mandatory scroll-pl-10">
@@ -341,7 +344,7 @@
 </section>
 
 <!-- Educación y Certificaciones -->
-<section id="education" class="px-6 py-10 bg-gray-900 text-white">
+<section #education id="education" class="px-6 py-10 bg-gray-900 text-white">
   <h2 class="text-3xl font-bold mb-8 text-center text-white">Educación</h2>
 
 <!-- Educación (scroll horizontal) -->
@@ -460,7 +463,7 @@
 </section>
 
 <!-- Skills Section -->
-<section id="skills" class="p-10 bg-gray-900">
+<section #skills id="skills" class="p-10 bg-gray-900">
   <h2 class="text-3xl font-bold text-center text-white mb-8">Habilidades</h2>
 
 <!-- Contenedor único con todas las habilidades -->
@@ -534,7 +537,21 @@
       <img src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/144_Gitlab_logo_logos-512.png" alt="GitLab" class="w-10 h-10 mr-4" />
       <p class="text-sm sm:text-base hidden md:block">GitLab</p>
     </div>
+    <!-- Herramientas -->
+     <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" alt="Postman" class="w-10 h-10 mr-4" />
+        <p class="text-sm sm:text-base hidden md:block">Postman</p>
+    </div>
 
+    <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker" class="w-10 h-10 mr-4" />
+      <p class="text-sm sm:text-base hidden md:block">Docker</p>
+    </div>
+
+    <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg" alt="Kubernetes" class="w-10 h-10 mr-4" />
+      <p class="text-sm sm:text-base hidden md:block">Kubernetes</p>
+    </div>
     <!-- Metodologías ágiles -->
     <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
       <img src="assets/scrum-logo.png" alt="Scrum" class="w-10 h-10 mr-4" />
@@ -611,6 +628,7 @@
         <div
           class="absolute inset-0 backface-hidden bg-black text-white p-6 flex items-center justify-center rounded-lg"
         >
+        <i class="{{skill.logo}} mx-3"></i>
           <p class="text-center font-semibold">{{ skill.name }}</p>
         </div>
 
@@ -629,7 +647,7 @@
 </section>
 
   <!-- Get in Touch -->
-  <section id="contact" class="p-10">
+  <section #contact id="contact" class="p-10">
     <h2 class="text-2xl font-bold mb-4">Contacto</h2>
     <form 
   action="https://formspree.io/f/mzzrkvlb" 

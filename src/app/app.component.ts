@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import * as AOS from 'aos';
 import { trigger, transition, style, animate } from '@angular/animations';
@@ -34,6 +34,52 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent implements OnInit {
   title = 'portfolio';
+  //Variable para la interaccion del menu
+  aboutIsVisible: boolean = false;
+  projectsIsVisible: boolean = false;
+  experienceIsVisible: boolean = false;
+  educationIsVisible: boolean = false;
+  skillsIsVisible: boolean = false;
+  contactIsVisible: boolean = false;
+   @ViewChild('about') about!: ElementRef;
+  @ViewChild('projects') projects!: ElementRef;
+   @ViewChild('experience') experience!: ElementRef;
+  @ViewChild('education') education!: ElementRef;
+   @ViewChild('skills') skills!: ElementRef;
+  @ViewChild('contact') contact!: ElementRef;
+  ngAfterViewInit() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.target === this.about.nativeElement) {
+          this.aboutIsVisible = entry.isIntersecting;
+        }
+        if (entry.target === this.projects.nativeElement) {
+          this.projectsIsVisible = entry.isIntersecting;
+        }
+        if (entry.target === this.experience.nativeElement) {
+          this.experienceIsVisible = entry.isIntersecting;
+        }
+        if (entry.target === this.education.nativeElement) {
+          this.educationIsVisible = entry.isIntersecting;
+        }
+        if (entry.target === this.skills.nativeElement) {
+          this.skillsIsVisible = entry.isIntersecting;
+        }
+        if (entry.target === this.contact.nativeElement) {
+          this.contactIsVisible = entry.isIntersecting;
+        }
+      });
+    }, {
+      threshold: 0.5 // Puedes ajustar el porcentaje visible necesario
+    });
+
+    observer.observe(this.about.nativeElement);
+    observer.observe(this.projects.nativeElement);
+    observer.observe(this.experience.nativeElement);
+    observer.observe(this.education.nativeElement);
+    observer.observe(this.skills.nativeElement);
+    observer.observe(this.contact.nativeElement);
+  }
   ngOnInit(): void {
     AOS.init();
     this.flippedCards = new Array(this.skillList.length).fill(false);
@@ -65,23 +111,28 @@ export class AppComponent implements OnInit {
   skillList = [
   {
     name: 'Comunicación',
-    description: 'Capacidad para expresar ideas claramente y escuchar activamente.'
+    description: 'Capacidad para expresar ideas claramente y escuchar activamente.',
+    logo: 'fa-solid fa-comments'
   },
   {
     name: 'Trabajo en equipo',
-    description: 'Colaboración efectiva con otros para alcanzar metas comunes.'
+    description: 'Colaboración efectiva con otros para alcanzar metas comunes.',
+    logo: "fa-solid fa-users-gear"
   },
   {
     name: 'Adaptabilidad',
-    description: 'Capacidad de ajustarse rápidamente a los cambios.'
+    description: 'Capacidad de ajustarse rápidamente a los cambios.',
+    logo: 'fas fa-sync-alt'
   },
   {
     name: 'Pensamiento crítico',
-    description: 'Evaluación objetiva de situaciones para tomar decisiones.'
+    description: 'Evaluación objetiva de situaciones para tomar decisiones.',
+    logo: 'fas fa-brain'
   },
   {
     name: 'Liderazgo',
-    description: 'Influir y guiar a otros hacia el logro de objetivos.'
+    description: 'Influir y guiar a otros hacia el logro de objetivos.',
+    logo: 'fas fa-user-tie'
   }
 ];
 flippedCards: boolean[] = [];
@@ -107,7 +158,7 @@ toggleFlip(index: number) {
   isProfileMenuOpen = false;
 
 toggleProfileMenu() {
-  this.isProfileMenuOpen = !this.isProfileMenuOpen;
+  // this.isProfileMenuOpen = !this.isProfileMenuOpen;
 }
 
 //para el boton hamburguesa
