@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import * as AOS from 'aos';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import emailjs from 'emailjs-com';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -35,6 +36,18 @@ import emailjs from 'emailjs-com';
 })
 export class AppComponent implements OnInit {
   title = 'portfolio';
+  //Para los iconoces flotantes
+  icons: any[] = [];
+  //Para el boton flotante subir
+  showScrollTopButton = false;
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.showScrollTopButton = window.scrollY > 300;
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
   //Variable para la interaccion del menu
   aboutIsVisible: boolean = false;
   projectsIsVisible: boolean = false;
@@ -82,8 +95,55 @@ export class AppComponent implements OnInit {
     observer.observe(this.contact.nativeElement);
   }
   ngOnInit(): void {
-    AOS.init();
+    AOS.init({
+      duration: 1000, // Valor por defecto para todos si no se define individualmente
+    });
+
     this.flippedCards = new Array(this.skillList.length).fill(false);
+    //Para los iconos flotando
+    const iconList = [
+    { name: 'JavaScript', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
+    { name: 'TypeScript', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
+    { name: 'Angular', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg' },
+    { name: 'Java', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg' },
+    { name: 'Spring Boot', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg' },
+    { name: 'Docker', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
+    { name: 'Kubernetes', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg' },
+    { name: 'HTML', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
+    { name: 'CSS', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
+    { name: 'GitHub', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg' },
+    { name: 'GitLab', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original-wordmark.svg' },
+    { name: 'PostgreSQL', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
+    { name: 'MySQL', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
+    { name: 'SQL Server', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg' },
+    { name: 'Azure', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg' },
+    { name: 'Csharp', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg' },
+    { name: 'Visual Basic', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualbasic/visualbasic-original.svg' },
+    { name: 'Redux', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg' },
+    { name: 'Visual Studio Code', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg' },
+    { name: 'Sublime', src: 'assets/sublime-text-logo.png' },
+    { name: 'Oracle', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/oracle/oracle-original.svg' },
+    { name: 'Postman', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg' },
+    { name: 'Tailwind', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
+    { name: 'Bootstrap', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original-wordmark.svg' },
+    { name: 'HTML', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg' },
+    { name: 'Git', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
+    // ... agrega más íconos aquí
+  ];
+  this.icons = iconList.map(name => ({
+      name,
+      src: `${name.src}`,
+      top: `${11+Math.random() * 90}%`,
+      left: `${this.getRandomSidePosition()}%`,
+      delay: `${Math.random() * 5}s`
+    }));
+  
+  }
+  //para los logos flotantes
+  private getRandomSidePosition(): number {
+    const leftSide = Math.random() * 25;      // 0% a 25%
+    const rightSide = 75 + Math.random() * 20; // 75% a 100%
+    return Math.random() < 0.5 ? leftSide : rightSide;
   }
   constructor(private translate: TranslateService) {
     translate.addLangs(['es', 'en']);
@@ -187,7 +247,7 @@ translatePage(event: Event) {
 //para la section del contacto
 sendEmail(e: Event) {
     e.preventDefault();
-
+    const form = e.target as HTMLFormElement;
     emailjs.sendForm(
       'ServiceCV',     // 🔁 Reemplaza con tu ID real
       'template_m21knz9',  // 🔁 Reemplaza con tu template ID
@@ -195,10 +255,22 @@ sendEmail(e: Event) {
       'ewUWZNiaHoFR0zIBY'      // 🔁 Tu Public Key (User ID nuevo)
     )
     .then(() => {
-      alert('Mensaje enviado correctamente');
+      // alert('Mensaje enviado correctamente');
+      Swal.fire({
+        title: "Mensaje enviado correctamente",
+        icon: "success",
+        draggable: true
+      });
+      form.reset();
     })
     .catch(() => {
-      alert('Hubo un error al enviar tu mensaje');
+      // alert('Hubo un error al enviar tu mensaje');
+      Swal.fire({
+        title: "Hubo un error al enviar tu mensaje",
+        icon: "error",
+        draggable: true
+      });
+      form.reset();
     });
   }
 
