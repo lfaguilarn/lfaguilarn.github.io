@@ -207,72 +207,57 @@ class="pt-18 min-h-[calc(100vh-64px)] bg-black text-white flex items-center just
   </div>
 
 </div>
-  <!-- Projects -->
-<section #projects class="bg-black text-white py-6 px-6" id="projects">
-  <div class="max-w-7xl mx-auto">
-    <h2 class="text-3xl font-bold mb-12 text-center">Proyectos Destacados</h2>
 
-    <!-- Layout responsivo: columna en móvil, scroll horizontal solo en pantallas grandes -->
+<!-- Projects -->
+ <section #projects class="bg-black text-white py-6 px-6" id="projects">
+<div class="max-w-7xl mx-auto" data-aos="fade-up" data-aos-duration="800">
+  <h3 class="text-3xl font-bold mb-12 text-center">Proyectos Destacados</h3>
+
+  <!-- <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6"> -->
+  <div class="flex flex-col gap-4 md:flex-row md:overflow-x-auto md:scrollbar-hide md:pb-2">
     <div
-      id="scroll-container"
-      class="flex flex-col gap-4 md:flex-row md:overflow-x-auto md:scrollbar-hide md:pb-2"
-      data-aos="fade-up"
-      onmousemove="handleAutoScroll(event)"
-      onmouseleave="stopAutoScroll()"
+      *ngFor="let project of ProyectList; let i = index"
+      class="relative group perspective h-70"
+      (click)="toggleFlip(i)"
     >
-      <!-- Proyecto 1 -->
-      <div class="min-w-full md:min-w-[350px] bg-gray-900 border border-gray-700 hover:border-blue-500 transition-colors duration-300 p-6 rounded-lg">
-        <h3 class="text-xl font-semibold mb-2">SiHuac</h3>
-        <p class="text-sm text-gray-400 mb-4">Aplicación de escritorio para gestión de hostería, centrada en eficiencia operativa y experiencia del usuario.</p>
-        <ul class="text-sm text-gray-300 list-disc pl-4 mb-4">
-          <li>Check-in/out, reservas y control de huéspedes</li>
-          <li>Reportes, tarifas configurables, panel en tiempo real</li>
-          <li>Roles de usuario y gestión de acceso</li>
-        </ul>
-        <div class="flex flex-wrap gap-2 text-xs">
-          <span class="devicon-java-plain bg-gray-800 px-2 py-1 rounded"> Java</span>
-          <span class="devicon-maven-plain bg-gray-800 px-2 py-1 rounded"> Maven</span>
-          <span class="devicon-jenkins-plain bg-gray-800 px-2 py-1 rounded"> Jenkins</span>
-          <span class="devicon-postgresql-plain bg-gray-800 px-2 py-1 rounded"> PostgreSQL</span>
-          <span class="devicon-github-original bg-gray-800 px-2 py-1 rounded"> GitHub</span>
+      <div
+        class="transition-transform duration-700 transform-style preserve-3d w-full h-16 rounded-lg shadow-lg"
+        [ngClass]="{
+          'rotate-y-180': flippedCards[i],
+          'group-hover:rotate-y-180': true
+        }"
+      >
+        <!-- Cara frontal -->
+        <div class="min-w-full md:min-w-[350px] bg-gray-900 border border-gray-700 hover:border-{{project.color}}-500 transition-colors duration-300 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold mb-2">{{ project.name }}</h3>
+          <p class="text-sm text-gray-400 mb-4">{{ project.description }}</p>
+          <ul class="text-sm text-gray-300 list-disc pl-4 mb-4">
+             <li *ngFor="let item of project.functions">{{ item }}</li>
+          </ul>
+          <!-- <i class="{{skill.logo}} mx-3"></i>
+          <p class="text-center font-semibold">{{ skill.name }}</p> -->
         </div>
-      </div>
 
-      <!-- Proyecto 2 -->
-      <div class="min-w-full md:min-w-[350px] bg-gray-800 border border-gray-700 hover:border-green-500 transition-colors duration-300 p-6 rounded-lg">
-        <h3 class="text-xl font-semibold mb-2">Obacar</h3>
-        <p class="text-sm text-gray-300 mb-4">Sistema para inventario y facturación en almacenes de repuestos, escalable y modular.</p>
-        <ul class="text-sm text-gray-200 list-disc pl-4 mb-4">
-          <li>Control de inventario en tiempo real</li>
-          <li>Facturación y trazabilidad</li>
-          <li>Reportes, clasificación de productos</li>
-        </ul>
-        <div class="flex flex-wrap gap-2 text-xs">
-          <span class="devicon-java-plain bg-gray-700 px-2 py-1 rounded"> Java</span>
-          <span class="devicon-maven-plain bg-gray-700 px-2 py-1 rounded"> Maven</span>
-          <span class="devicon-postgresql-plain bg-gray-700 px-2 py-1 rounded"> PostgreSQL</span>
-          <span class="devicon-github-original bg-gray-700 px-2 py-1 rounded"> GitHub</span>
+        <!-- Cara trasera -->
+        <!-- <div class="absolute inset-0 backface-hidden rotate-y-180 bg-indigo-100 text-white p-4 flex items-center justify-center rounded-lg "> -->
+        <!-- <div class="min-w-full md:min-w-[350px] bg-gray-900 absolute inset-0 backface-hidden rotate-y-180 border border-gray-700 hover:border-blue-500 transition-colors duration-300 p-6 rounded-lg"> -->
+        <div class="min-w-full md:min-w-[350px] lg:min-h-[220px] min-h-[280px] bg-gray-900 absolute inset-0 backface-hidden rotate-y-180 border border-gray-700 hover:border-blue-500 transition-colors duration-300 p-6 rounded-lg">
+          <div class="grid grid-cols-4 sm:grid-cols-4 gap-4">
+            <!-- Imagen 1 -->
+            <div
+              *ngFor="let logo of project.logoTecnology; let i = index"
+              class="flex flex-col items-center bg-gray-800 p-4 rounded-lg hover:scale-105 transition-transform duration-300"
+            >
+              <img [src]="logo" [alt]="project.tecnology[i]" class="w-6 h-6 object-cover rounded-md">
+              <p class="mt-2 text-sm text-white font-medium">{{ project.tecnology[i] }}</p>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <!-- Proyecto 3 -->
-      <div class="min-w-full md:min-w-[350px] bg-gray-900 border border-gray-700 hover:border-yellow-500 transition-colors duration-300 p-6 rounded-lg">
-        <h3 class="text-xl font-semibold mb-2">ElectroSánchez</h3>
-        <p class="text-sm text-gray-400 mb-4">Sistema personalizado para ElectroSánchez con control de inventario, movimientos y facturación.</p>
-        <ul class="text-sm text-gray-300 list-disc pl-4 mb-4">
-          <li>Entradas/salidas, gestión de productos</li>
-          <li>Facturas, roles, stock mínimo</li>
-          <li>Reportes de movimientos y ventas</li>
-        </ul>
-        <div class="flex flex-wrap gap-2 text-xs">
-          <span class="devicon-java-plain bg-gray-800 px-2 py-1 rounded"> Java</span>
-          <span class="devicon-maven-plain bg-gray-800 px-2 py-1 rounded"> Maven</span>
-          <span class="devicon-postgresql-plain bg-gray-800 px-2 py-1 rounded"> PostgreSQL</span>
-          <span class="devicon-github-original bg-gray-800 px-2 py-1 rounded"> GitHub</span>
-        </div>
       </div>
     </div>
   </div>
+</div>
 </section>
 
   <!-- Experience -->
@@ -419,13 +404,27 @@ class="pt-18 min-h-[calc(100vh-64px)] bg-black text-white flex items-center just
        onmousemove="handleAutoScroll(event)"
        onmouseleave="stopAutoScroll()"
   >
-    <!-- Udemy -->
+    <!-- Código Facilito -->
   <div class="w-full max-w-[350px] min-w-[300px] h-full snap-center flex-shrink-0 bg-black p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between text-white">
     <div class="flex items-center mb-4">
       <img src="https://codigofacilito.com/assets/iso-2c915b58698845df3902effd7a958111fef40aab4c8c13db1db519b37fc1b2e8.png" alt="Código FacilitoLogo" class="w-20 h-20 mr-4 rounded-full" />
       <div class="overflow-hidden">
-        <p class="font-semibold text-lg truncate">Código Facilito</p>
-        <p class="text-gray-300 text-sm truncate">Git Profesional (2025)</p>
+        <p class="font-semibold text-lg leading-snug break-words text-pretty">Docker Profesional (2025)</p>
+        <p class="text-gray-300 text-sm truncate">Código Facilito</p>
+      </div>
+    </div>
+    <a href="assets/Certificado - Curso Profesional de Docker.pdf" target="_blank"
+      class="mt-auto bg-teal-500 text-white px-4 py-2 rounded-md shadow hover:bg-teal-600 transition text-center">
+      Ver Certificado
+    </a>
+  </div>
+    <!-- Código Facilito -->
+  <div class="w-full max-w-[350px] min-w-[300px] h-full snap-center flex-shrink-0 bg-black p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between text-white">
+    <div class="flex items-center mb-4">
+      <img src="https://codigofacilito.com/assets/iso-2c915b58698845df3902effd7a958111fef40aab4c8c13db1db519b37fc1b2e8.png" alt="Código FacilitoLogo" class="w-20 h-20 mr-4 rounded-full" />
+      <div class="overflow-hidden">
+        <p class="font-semibold text-lg leading-snug break-words text-pretty">Git Profesional (2025)</p>
+        <p class="text-gray-300 text-sm truncate">Código Facilito</p>
       </div>
     </div>
     <a href="assets/Certificado - Curso profesional de Git.pdf" target="_blank"
@@ -439,11 +438,26 @@ class="pt-18 min-h-[calc(100vh-64px)] bg-black text-white flex items-center just
     <div class="flex items-center mb-4">
       <img src="assets/udemy-logo.png" alt="Udemy Logo" class="w-20 h-20 mr-4 rounded-full" />
       <div class="overflow-hidden">
-        <p class="font-semibold text-lg truncate">Udemy</p>
-        <p class="text-gray-300 text-sm truncate">Angular y SpringBoot (2025)</p>
+        <p class="font-semibold text-lg leading-snug break-words text-pretty">Angular y SpringBoot (2025)</p>
+        <p class="text-gray-300 text-sm truncate">Udemy</p>
       </div>
     </div>
     <a href="http://ude.my/UC-f8b5b2b6-d0a2-4933-90d5-ec4e3d92c48d" target="_blank"
+      class="mt-auto bg-teal-500 text-white px-4 py-2 rounded-md shadow hover:bg-teal-600 transition text-center">
+      Ver Certificado
+    </a>
+  </div>
+
+  <!-- Código Facilito -->
+  <div class="w-full max-w-[350px] min-w-[300px] h-full snap-center flex-shrink-0 bg-black p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between text-white">
+    <div class="flex items-center mb-4">
+      <img src="https://codigofacilito.com/assets/iso-2c915b58698845df3902effd7a958111fef40aab4c8c13db1db519b37fc1b2e8.png" alt="Código FacilitoLogo" class="w-20 h-20 mr-4 rounded-full" />
+      <div class="overflow-hidden">
+        <p class="font-semibold text-lg leading-snug break-words text-pretty">Spring Framework y Spring Boot (2025)</p>
+        <p class="text-gray-300 text-sm truncate">Código Facilito</p>
+      </div>
+    </div>
+    <a href="assets/Certificado - Curso de Spring Framework y Spring Boot.pdf" target="_blank"
       class="mt-auto bg-teal-500 text-white px-4 py-2 rounded-md shadow hover:bg-teal-600 transition text-center">
       Ver Certificado
     </a>
@@ -454,8 +468,8 @@ class="pt-18 min-h-[calc(100vh-64px)] bg-black text-white flex items-center just
     <div class="flex items-center mb-4">
       <img src="assets/azure-logo.jpg" alt="Azure Logo" class="w-20 h-20 mr-4 rounded-full" />
       <div class="overflow-hidden">
-        <p class="font-semibold text-lg truncate">Azure</p>
-        <p class="text-gray-300 text-sm leading-snug break-words text-pretty">Azure Fundamentals (2023)</p>
+        <p class="font-semibold text-lg leading-snug break-words text-pretty">Azure Fundamentals (2023)</p>
+        <p class="text-gray-300 text-sm truncate">Azure</p>
       </div>
     </div>
     <a href="assets/Azure Fundamentals.pdf" target="_blank"
@@ -469,8 +483,8 @@ class="pt-18 min-h-[calc(100vh-64px)] bg-black text-white flex items-center just
     <div class="flex items-center mb-4">
       <img src="assets/cisco-logo.jpg" alt="Cisco Logo" class="w-20 h-20 mr-4 rounded-full" />
       <div class="overflow-hidden">
-        <p class="font-semibold text-lg truncate">Cisco</p>
-        <p class="text-gray-300 text-sm leading-snug break-words text-pretty">Internet de Todo (2020)</p>
+        <p class="font-semibold text-lg leading-snug break-words text-pretty">Internet de Todo (2020)</p>
+        <p class="text-gray-300 text-sm truncate">Cisco</p>
       </div>
     </div>
     <a href="assets/cisco.pdf" target="_blank"
@@ -484,8 +498,8 @@ class="pt-18 min-h-[calc(100vh-64px)] bg-black text-white flex items-center just
     <div class="flex items-center mb-4">
       <img src="assets/utmach.jpg" alt="UTMACH Logo" class="w-20 h-20 mr-4 rounded" />
       <div class="overflow-hidden">
-        <p class="font-semibold text-lg truncate">UTMACH</p>
-        <p class="text-gray-300 text-sm leading-snug break-words text-pretty">Tecnología de Información y Comunicación (2019)</p>
+        <p class="font-semibold text-md leading-snug break-words text-pretty">Tecnología de Información y Comunicación (2019)</p>
+        <p class="text-gray-300 text-sm truncate">UTMACH</p>
       </div>
     </div>
     <a href="assets/utmach.pdf" target="_blank"
@@ -499,8 +513,8 @@ class="pt-18 min-h-[calc(100vh-64px)] bg-black text-white flex items-center just
     <div class="flex items-center mb-4">
       <img src="assets/utmach.jpg" alt="UTMACH Logo" class="w-20 h-20 mr-4 rounded" />
       <div class="overflow-hidden">
-        <p class="font-semibold text-lg truncate">UTMACH</p>
-        <p class="text-gray-300 text-sm leading-snug break-words text-pretty">Introduction of Internet of Everything (2019)</p>
+        <p class="font-semibold text-lg leading-snug break-words text-pretty">Introduction of Internet of Everything (2019)</p>
+        <p class="text-gray-300 text-sm truncate">UTMACH</p>
       </div>
     </div>
     <a href="assets/IOT.pdf" target="_blank"
@@ -532,6 +546,10 @@ class="pt-18 min-h-[calc(100vh-64px)] bg-black text-white flex items-center just
     <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
       <img src="assets/java-logo.png" alt="Java" class="w-10 h-10 mr-2" />
       <p class="text-sm sm:text-base hidden md:block">Java SpringBoot</p>
+    </div>
+    <div class="flex items-center bg-black text-white px-3 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg" alt="Maven" class="w-10 h-10 mr-2" />
+      <p class="text-sm sm:text-base hidden md:block">Maven</p>
     </div>
 
     <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
@@ -613,6 +631,10 @@ class="pt-18 min-h-[calc(100vh-64px)] bg-black text-white flex items-center just
      <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" alt="Postman" class="w-10 h-10 mr-4" />
         <p class="text-sm sm:text-base hidden md:block">Postman</p>
+    </div>
+     <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg" alt="Jenkins" class="w-10 h-10 mr-4" />
+        <p class="text-sm sm:text-base hidden md:block">Jenkins</p>
     </div>
 
     <div class="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-lg hover:scale-110 transform transition-transform duration-300 whitespace-nowrap">

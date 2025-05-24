@@ -196,6 +196,43 @@ export class AppComponent implements OnInit {
     logo: 'fas fa-user-tie'
   }
 ];
+
+ProyectList = [
+  {
+    name: 'SiHuac',
+    description: 'Aplicación de escritorio para gestión de hostería, centrada en eficiencia operativa y experiencia del usuario',
+    color: 'blue',
+    functions:['Check-in/out, reservas y control de huéspedes','Reportes, tarifas configurables, panel en tiempo real','Roles de usuario y gestión de acceso'],
+    tecnology: ['Java','Maven', 'Jenkins', 'PostgreSQL','GitHub'],
+    logoTecnology:['assets/java-logo.png',
+      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg', 
+      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg', 
+      'assets/postgresql-logo.png',
+      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg']
+  },
+  {
+    name: 'Obacar',
+    description: 'Sistema para inventario y facturación en almacenes de repuestos, escalable y modular.',
+    color: 'green',
+    functions:['Control de inventario en tiempo real','Facturación y trazabilidad','Reportes, clasificación de productos'],
+    tecnology: ['Java','Jenkins', 'PostgreSQL','GitHub'],
+    logoTecnology:['assets/java-logo.png',
+      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg', 
+      'assets/postgresql-logo.png',
+      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg']
+  },
+  {
+    name: 'ElectroSánchez',
+    description: 'Sistema personalizado para ElectroSánchez con control de inventario, movimientos y facturación.',
+    color: 'yellow',
+    functions:['Entradas/salidas, gestión de productos','Facturas, roles, stock mínimo','Reportes de movimientos y ventas'],
+    tecnology: ['Java','Maven', 'PostgreSQL','GitHub'],
+    logoTecnology:['assets/java-logo.png',
+      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg', 
+      'assets/postgresql-logo.png',
+      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg']
+  },
+];
 flippedCards: boolean[] = [];
 toggleFlip(index: number) {
   this.flippedCards[index] = !this.flippedCards[index];
